@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GeoExplorer Engine</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Orbitron:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="app">
+      <div id="dynamic-background"></div>
+      <div id="start-screen" class="screen active">
+        <div class="glass-panel center-content">
+          <h1 id="game-title">Loading...</h1>
+          <p id="game-subtitle"></p>
+          <button id="btn-start" class="cta-button">INICIAR SISTEMA</button>
+        </div>
+      </div>
+
+      <div id="game-ui" class="screen" style="display: none">
+        <div class="ui-top">
+          <button id="btn-home" class="icon-btn">
+            <i class="fas fa-home"></i>
+          </button>
+          <div id="mission-tracker">
+            <span class="tracker-label">DADOS:</span>
+            <span id="score-display">0</span> |
+            <span id="exploration-display">0%</span>
+          </div>
+        </div>
+
+        <div id="narrator-area" class="narrator-overlay">
+          <img
+            id="narrator-img"
+            src=""
+            alt="Narrator"
+            class="narrator-sprite"
+          />
+          <div class="dialog-box">
+            <h3 id="narrator-name">SYSTEM</h3>
+            <p id="narrator-text"></p>
+            <button id="btn-next-dialog" class="next-btn">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <div id="quiz-overlay" class="modal-overlay" style="display: none">
+          <div class="glass-panel quiz-panel">
+            <h2 id="quiz-question">Pergunta...</h2>
+            <div id="quiz-options" class="options-grid"></div>
+            <p id="quiz-feedback"></p>
+          </div>
+        </div>
+      </div>
+
+      <div id="level-select" class="screen" style="display: none">
+        <div class="glass-panel full-panel">
+          <h2>SELECIONE O MÓDULO</h2>
+          <div id="cards-container" class="cards-grid"></div>
+        </div>
+      </div>
+
+      <div id="scene-container">
+        <canvas id="three-canvas"></canvas>
+        <div id="hotspots-layer"></div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <script src="engine/ThemeController.js"></script>
+    <script src="engine/GameState.js"></script>
+    <script src="engine/AudioController.js"></script>
+    <script src="engine/ThreeSixtyView.js"></script>
+    <script src="engine/HotspotController.js"></script>
+    <script src="engine/UIController.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

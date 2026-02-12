@@ -1,0 +1,149 @@
+{
+  "meta": {
+    "title": "Operação Reboot",
+    "version": "1.0",
+    "menu_bgm": "assets/audio/boot-sequence.mp3"
+  },
+  "theme": {
+    "colors": {
+      "--primary-color": "#00FF00",
+      "--secondary-color": "rgba(10, 20, 40, 0.95)",
+      "--accent-color": "#00FFFF",
+      "--text-color": "#FFFFFF",
+      "--glass-bg": "rgba(20, 30, 50, 0.6)",
+      "--glass-border": "rgba(0, 255, 255, 0.3)",
+      "--success-color": "#00FF00",
+      "--error-color": "#FF4444"
+    },
+    "fonts": {
+      "--font-header": "'Orbitron', sans-serif",
+      "--font-body": "'Inter', sans-serif"
+    },
+    "assets": {
+      "narrator_image": "assets/images/byte-drone.png",
+      "glitch_effect": "assets/images/glitch-overlay.png"
+    }
+  },
+  "gameplay": {
+    "points_per_hotspot": 10,
+    "points_quiz_correct": 100,
+    "points_quiz_retry": 50,
+    "require_exploration_to_quiz": true
+  },
+  "narrator": {
+    "name": "B.Y.T.E.",
+    "typing_speed": 30,
+    "intro_text": "Alerta de Sistema! Detectei o seu acesso. O Grande Servidor sofreu um apagão crítico. Eu sou o B.Y.T.E. e preciso da sua ajuda na Operação Reboot!"
+  },
+  "scenes": [
+    {
+      "id": "hub",
+      "name": "Hub Central",
+      "type": "menu",
+      "background": "assets/images/hub-background.mp4",
+      "description": "Escolha o módulo para restaurar.",
+      "cards": [
+        {
+          "targetScene": "sala_informatica",
+          "label": "Sala de Informática",
+          "image": "assets/images/sala-thumb.png",
+          "description": "Ambiente Macro: História e Periféricos."
+        },
+        {
+          "targetScene": "cpu_interno",
+          "label": "Interior da CPU",
+          "image": "assets/images/cpu-thumb.png",
+          "description": "Ambiente Micro: Hardware e Processamento."
+        }
+      ]
+    },
+    {
+      "id": "sala_informatica",
+      "name": "Sala de Informática",
+      "type": "360",
+      "image": "assets/images/sala_informatica_360.png",
+      "initial_view": "180,-20",
+      "audio_ambience": "assets/audio/office-ambience.mp3",
+      "narrator_intro": "Acedendo à Memória Histórica... Encontra os periféricos e os pioneiros nas paredes.",
+      "hotspots": [
+        {
+          "id": "h_ada",
+          "position": "-10,1",
+          "icon": "user-graduate",
+          "label": "Ada Lovelace",
+          "labelPosition": "top",
+          "action": "dialog",
+          "content": "Ada Lovelace: A primeira programadora da história. Ela escreveu o primeiro algoritmo muito antes de existir um computador físico!"
+        },
+        {
+          "id": "h_mouse",
+          "position": "-110,-50",
+          "icon": "mouse",
+          "label": "Teclado e Mouse",
+          "labelPosition": "right",
+          "action": "dialog",
+          "content": "Periféricos de Entrada: É assim que você fala com a máquina."
+        },
+        {
+          "id": "h_quiz_sala",
+          "position": "-120,5",
+          "icon": "clipboard-check",
+          "label": "Protocolo de Verificação",
+          "action": "quiz",
+          "locked_message": "Você precisa encontrar todos os dados antes de iniciar o teste!",
+          "questions": [
+            {
+              "text": "O teclado e o rato pertencem a qual grupo?",
+              "options": [
+                { "text": "Periféricos de Saída", "correct": false },
+                { "text": "Periféricos de Entrada", "correct": true },
+                { "text": "Processadores", "correct": false }
+              ],
+              "feedback_correct": "Exato! Eles enviam dados para o PC.",
+              "feedback_wrong": "Negativo. Eles servem para 'entrar' com comandos."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cpu_interno",
+      "name": "Interior da CPU",
+      "type": "360",
+      "image": "assets/images/cpu_interno_360.jpg",
+      "initial_view": "-90,1",
+      "audio_ambience": "assets/audio/scifi-drone.mp3",
+      "narrator_intro": "Protocolo de miniaturização ativado! Bem-vindo à cidade dos dados.",
+      "hotspots": [
+        {
+          "id": "h_cpu",
+          "position": { "yaw": 0, "pitch": 0 },
+          "icon": "microchip",
+          "label": "Processador",
+          "action": "dialog",
+          "content": "O Cérebro (CPU): Realiza bilhões de cálculos por segundo. O cooler em cima impede que ele derreta."
+        },
+        {
+          "id": "h_quiz_cpu",
+          "position": { "yaw": 90, "pitch": 0 },
+          "icon": "bolt",
+          "label": "Diagnóstico Final",
+          "action": "quiz",
+          "locked_message": "Analise todos os componentes primeiro.",
+          "questions": [
+            {
+              "text": "Qual peça conecta todas as outras?",
+              "options": [
+                { "text": "Placa-Mãe", "correct": true },
+                { "text": "Cooler", "correct": false },
+                { "text": "Mouse", "correct": false }
+              ],
+              "feedback_correct": "Correto! É a avenida principal dos dados.",
+              "feedback_wrong": "Incorreto. Procure pela placa grande onde tudo se encaixa."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
