@@ -26,6 +26,7 @@
       "villain_name": "GLITCH"
     }
   },
+
   "gameplay": {
     "points_per_hotspot": 10,
     "points_quiz_correct": 100,
@@ -103,6 +104,16 @@
           "action": "quiz",
           "locked_message": "Você precisa encontrar todos os dados antes de iniciar o teste!",
           "questions": [
+            {
+              "text": "O teclado e o rato pertencem a qual grupo?",
+              "options": [
+                { "text": "Periféricos de Saída", "correct": false },
+                { "text": "Periféricos de Entrada", "correct": true },
+                { "text": "Processadores", "correct": false }
+              ],
+              "feedback_correct": "Exato! Eles enviam dados para o PC.",
+              "feedback_wrong": "Negativo. Eles servem para 'entrar' com comandos."
+            },
             {
               "text": "O teclado e o rato pertencem a qual grupo?",
               "options": [

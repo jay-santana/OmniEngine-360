@@ -10,7 +10,7 @@
   --glass-border: rgba(255, 255, 255, 0.2);
   --font-header: sans-serif;
   --font-body: sans-serif;
-  
+
   /* Variáveis responsivas - base mobile */
   --title-size: 2rem;
   --panel-padding: 1rem;
@@ -39,7 +39,8 @@ body {
   overflow: hidden;
   width: 100vw;
   height: 100vh;
-  -webkit-tap-highlight-color: transparent; /* Remove highlight em mobile */
+  -webkit-tap-highlight-color: transparent;
+  /* Remove highlight em mobile */
 }
 
 /* ===== CONTAINER 3D ===== */
@@ -115,7 +116,8 @@ body {
 
 #level-select {
   background: transparent;
-  overflow-y: auto; /* Permite scroll em mobile */
+  overflow-y: auto;
+  /* Permite scroll em mobile */
   padding: var(--panel-padding);
 }
 
@@ -139,7 +141,9 @@ body {
 }
 
 /* ===== TIPOGRAFIA RESPONSIVA ===== */
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-family: var(--font-header);
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -150,6 +154,7 @@ h1 {
   color: var(--primary-color);
   text-shadow: 0 0 10px var(--primary-color);
   word-break: break-word;
+  margin-bottom: 20px;
 }
 
 h2 {
@@ -170,7 +175,8 @@ h2 {
   border-radius: 50px;
   margin-top: 20px;
   transition: transform 0.2s, box-shadow 0.2s;
-  width: 100%;
+  width: fit-content;
+  height: fit-content;
   max-width: 300px;
 }
 
@@ -229,7 +235,7 @@ h2 {
   align-items: flex-end;
   gap: 10px;
   pointer-events: none;
-  z-index: 200;
+  z-index: 400;
 }
 
 .narrator-sprite {
@@ -277,6 +283,30 @@ h2 {
   animation: blink 1s infinite;
   pointer-events: auto;
   padding: 5px;
+}
+
+/* Adicione estilo para a tela de estatísticas dentro do Quiz */
+.stats-container {
+  text-align: center;
+  color: white;
+  font-family: var(--font-header);
+}
+
+.stat-item {
+  background: rgba(255, 255, 255, 0.1);
+  margin: 10px 0;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid var(--primary-color);
+  font-size: 1.1rem;
+}
+
+.stat-value {
+  display: block;
+  font-size: 1.5rem;
+  color: var(--accent-color);
+  font-weight: bold;
+  margin-top: 5px;
 }
 
 /* ===== HOTSPOTS ===== */
@@ -437,6 +467,7 @@ h2 {
   grid-template-columns: 1fr;
   gap: 10px;
   margin-top: 20px;
+  align-items: flex-end;
 }
 
 .quiz-opt {
@@ -466,12 +497,6 @@ h2 {
   border-color: var(--error-color);
 }
 
-#quiz-feedback {
-  margin-top: 20px;
-  font-size: 1rem;
-  font-weight: bold;
-  min-height: 30px;
-}
 
 /* ===== EFEITOS ===== */
 #red-alert-overlay {
@@ -503,7 +528,7 @@ h2 {
   pointer-events: none;
   opacity: 0;
   transition: opacity 1.4s cubic-bezier(0.23, 1, 0.32, 1),
-              transform 1.4s cubic-bezier(0.23, 1, 0.32, 1);
+    transform 1.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 #villain-container.visible {
@@ -521,7 +546,9 @@ h2 {
 
 /* ===== KEYFRAMES ===== */
 @keyframes blink {
-  50% { opacity: 0; }
+  50% {
+    opacity: 0;
+  }
 }
 
 @keyframes villainFloatImponent {
@@ -529,10 +556,12 @@ h2 {
     transform: translateY(0px) scale(0.98);
     filter: drop-shadow(0 0 25px rgba(255, 0, 0, 0.5)) blur(0.8px);
   }
+
   50% {
     transform: translateY(-15px) scale(1.05);
     filter: drop-shadow(0 0 45px rgba(255, 0, 0, 0.8)) blur(1.2px);
   }
+
   100% {
     transform: translateY(0px) scale(0.98);
     filter: drop-shadow(0 0 25px rgba(255, 0, 0, 0.5)) blur(0.8px);
@@ -540,9 +569,179 @@ h2 {
 }
 
 @keyframes pulseQuiz {
-  0% { transform: translate(-50%, -50%) scale(1); }
-  50% { transform: translate(-50%, -50%) scale(1.2); }
-  100% { transform: translate(-50%, -50%) scale(1); }
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* ===== HEADER ESTILO GEOEXPLORER ===== */
+.ui-top.glass-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 50;
+  pointer-events: none;
+  /* Permite clicar no 360 atrás onde não tem botão */
+
+  /* O gradiente sutil no topo para leitura */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+/* Garante que os filhos recebam cliques */
+.ui-top>* {
+  pointer-events: auto;
+}
+
+.header-left,
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Botões do Header */
+.icon-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: var(--accent-color);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  /* Redondo igual ao antigo */
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.icon-btn:hover {
+  background: var(--primary-color);
+  color: #000;
+  transform: scale(1.1);
+  box-shadow: 0 0 15px var(--primary-color);
+}
+
+/* Tracker Centralizado e Bonito */
+#mission-tracker {
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid var(--primary-color);
+  color: #fff;
+  padding: 8px 20px;
+  border-radius: 30px;
+  font-family: var(--font-header);
+  font-size: 1rem;
+  backdrop-filter: blur(10px);
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
+}
+
+.tracker-icon {
+  color: var(--primary-color);
+}
+
+/* ===== CONTROLE DE VOLUME (SLIDER MÁGICO) ===== */
+.audio-control-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.volume-slider-container {
+  width: 0;
+  overflow: hidden;
+  transition: width 0.3s ease, margin 0.3s ease;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  height: 40px;
+  margin-right: 0;
+}
+
+/* Mostra o slider quando passa o mouse no wrapper ou no botão */
+.audio-control-wrapper:hover .volume-slider-container,
+.volume-slider-container:hover {
+  width: 100px;
+  /* Abre o slider */
+  margin-right: 10px;
+  padding: 0 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Estilo do Input Range */
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+  outline: none;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 5px var(--primary-color);
+}
+
+/* ===== TUTORIAL MODAL ===== */
+.tutorial-panel {
+  text-align: center;
+  max-width: 400px;
+}
+
+.tutorial-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 30px 0;
+  text-align: left;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 15px;
+  border-radius: 10px;
+  border-left: 3px solid var(--accent-color);
+}
+
+.step i {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  width: 30px;
+  text-align: center;
+}
+
+.step p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.3;
 }
 
 /* ===== TABLETS (768px - 1024px) ===== */
@@ -592,9 +791,6 @@ h2 {
     max-width: 100%;
   }
 
-  .options-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
 
   #villain-container,
   #villain-container.visible {

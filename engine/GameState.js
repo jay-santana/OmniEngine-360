@@ -3,9 +3,11 @@ class GameState {
     this.config = config;
     this.score = 0;
     this.visitedHotspots = new Set();
-    this.eventsTriggered = new Set(); // <-- NOVO: cenas cujo evento já ocorreu
+    this.eventsTriggered = new Set();
     this.currentSceneId = null;
     this.totalHotspotsInScene = 0;
+    this.sceneStartTime = 0; // Marca quando entrou na cena
+    this.quizMistakes = 0; // Conta erros no quiz atual
   }
 
   reset() {
@@ -17,8 +19,9 @@ class GameState {
   enterScene(sceneId, totalHotspots) {
     this.currentSceneId = sceneId;
     this.totalHotspotsInScene = totalHotspots;
-    // Filtra hotspots visitados apenas desta cena se quiser lógica por cena
-    // Aqui vamos manter um global simples ou por cena
+    this.sceneStartTime = Date.now();
+    this.quizMistakes = 0;
+
     window.dispatchEvent(
       new CustomEvent("updatetracker", {
         detail: { score: this.score, progress: this.getSceneProgress() },
@@ -47,16 +50,8 @@ class GameState {
   }
 
   getSceneProgress() {
-    // Conta quantos hotspots da cena atual já foram visitados
-    // Simplificação: assume que visitedHotspots guarda IDs únicos globais
-    // Para calcular %, precisamos saber quantos hotspots TEM na cena atual.
-    // O totalHotspotsInScene deve ser passado ao entrar na cena.
     if (this.totalHotspotsInScene === 0) return 100;
-
-    // Filtra os visitados que pertencem a cena atual (precisa de prefixo ou lógica,
-    // mas aqui vamos simplificar assumindo que o contador é gerenciado externamente ou incrementado)
-    // Solução Robusta: UIController verifica quais hotspots da cena ativa estão no Set.
-    return 0; // Será calculado pelo UIController com base nos dados visuais
+    return 0;
   }
 
   canUnlockQuiz(hotspotsList) {
@@ -83,9 +78,9 @@ class GameState {
   // Método para resetar UMA cena específica
   resetScene(sceneId) {
     // Remove apenas os hotspots visitados DESTA cena
-    const scene = this.config.scenes.find(s => s.id === sceneId);
+    const scene = this.config.scenes.find((s) => s.id === sceneId);
     if (scene) {
-      scene.hotspots.forEach(h => {
+      scene.hotspots.forEach((h) => {
         this.visitedHotspots.delete(h.id);
       });
     }
@@ -94,18 +89,18 @@ class GameState {
   }
 
   isSceneFullyExplored(sceneId) {
-    const scene = this.config.scenes.find(s => s.id === sceneId);
+    const scene = this.config.scenes.find((s) => s.id === sceneId);
     if (!scene) return false;
-    
+
     // Pega APENAS os hotspots de diálogo (ignora o quiz)
-    const dialogHotspots = scene.hotspots.filter(h => h.action === "dialog");
-    
+    const dialogHotspots = scene.hotspots.filter((h) => h.action === "dialog");
+
     // Se não tem nenhum hotspot de diálogo, já está explorado
     if (dialogHotspots.length === 0) return true;
-    
+
     // Conta quantos já foram visitados
-    const visitedCount = dialogHotspots.filter(h => 
-      this.visitedHotspots.has(h.id)
+    const visitedCount = dialogHotspots.filter((h) =>
+      this.visitedHotspots.has(h.id),
     ).length;
     // Retorna TRUE se TODOS foram visitados
     return visitedCount === dialogHotspots.length;
@@ -113,14 +108,22 @@ class GameState {
 
   // Método para contar quantos diálogos faltam
   getRemainingExploration(sceneId) {
-    const scene = this.config.scenes.find(s => s.id === sceneId);
+    const scene = this.config.scenes.find((s) => s.id === sceneId);
     if (!scene) return 0;
-    
-    const dialogHotspots = scene.hotspots.filter(h => h.action === "dialog");
-    const visitedCount = dialogHotspots.filter(h => 
-      this.visitedHotspots.has(h.id)
+
+    const dialogHotspots = scene.hotspots.filter((h) => h.action === "dialog");
+    const visitedCount = dialogHotspots.filter((h) =>
+      this.visitedHotspots.has(h.id),
     ).length;
-    
+
     return dialogHotspots.length - visitedCount;
+  }
+
+  getElapsedTime() {
+    if (!this.sceneStartTime) return "0s";
+    const delta = Date.now() - this.sceneStartTime;
+    const minutes = Math.floor(delta / 60000);
+    const seconds = ((delta % 60000) / 1000).toFixed(0);
+    return minutes > 0 ? `${minutes}m ${seconds}s` : `${seconds}s`;
   }
 }

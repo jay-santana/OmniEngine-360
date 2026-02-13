@@ -3,11 +3,12 @@ class GameEngine {
     this.config = null;
     this.themeParams = new ThemeController();
     this.audio = new AudioController();
-    this.ui = new UIController();
+    this.ui = new UIController(this);
     this.state = null;
     this.view360 = null;
     this.hotspots = null;
     this.events = null;
+    this.stats = null;
   }
 
   async init() {
@@ -18,7 +19,7 @@ class GameEngine {
     this.state = new GameState(this.config);
     this.view360 = new ThreeSixtyView("three-canvas");
 
-     // PASSA A IMAGEM DO GLITCH PARA O ThreeSixtyView
+    // PASSA A IMAGEM DO GLITCH PARA O ThreeSixtyView
     if (this.config.theme.assets.glitch_effect) {
       this.view360.setGlitchImage(this.config.theme.assets.glitch_effect);
     }
@@ -147,46 +148,47 @@ class GameEngine {
       // Registra a visita
       const isFirstVisit = this.state.registerVisit(hotspot.id);
       this.updateUI();
-      
+
       // Verifica se este é o ÚLTIMO hotspot
       const isFullyExplored = this.state.isSceneFullyExplored(sceneData.id);
       const eventNotTriggered = !this.state.eventsTriggered.has(sceneData.id);
-      
+
       // MOSTRA O DIÁLOGO e PASSA um callback para QUANDO terminar
       this.ui.showNarrator(
-        hotspot.content,  // Mensagem do hotspot (Ada, Mouse, etc.)
+        hotspot.content, // Mensagem do hotspot (Ada, Mouse, etc.)
         () => {
           // ESTE CÓDIGO EXECUTA QUANDO CLICAR EM "PRÓXIMO"
-          
+
           // Se acabou de completar a exploração E evento ainda não aconteceu
           if (isFullyExplored && eventNotTriggered && isFirstVisit) {
             // SÓ AGORA mostra a mensagem de desbloqueio!
             this.ui.showNarrator(
               "🎯 Protocolo de Verificação desbloqueado! Clique no ícone para iniciar.",
               null, // Sem callback adicional
-              "byte"
+              "byte",
             );
           }
         },
-        "byte" // B.Y.T.E. fala
+        "byte", // B.Y.T.E. fala
       );
-      
+
       return;
     }
 
     // --- HOTSPOT DE QUIZ ---
     if (hotspot.action === "quiz") {
       const isFullyExplored = this.state.isSceneFullyExplored(sceneData.id);
-      
+
       if (!isFullyExplored) {
         this.ui.showNarrator(
-          hotspot.locked_message || "Acesso negado. Complete a exploração primeiro.",
+          hotspot.locked_message ||
+            "Acesso negado. Complete a exploração primeiro.",
           null,
-          "byte"
+          "byte",
         );
         return;
       }
-      
+
       if (!this.state.eventsTriggered.has(sceneData.id)) {
         this.events.triggerVillainSequence(sceneData, hotspot);
       } else {
@@ -196,47 +198,40 @@ class GameEngine {
   }
 
   openQuiz(hotspot, sceneData) {
-    console.log("📝 Abrindo quiz"); // Debug
-    
+    console.log("📝 Abrindo quiz");
+
     if (!hotspot || !hotspot.questions) {
       console.error("❌ Quiz hotspot inválido!", hotspot);
       return;
     }
-    
-    this.ui.showQuiz(hotspot, (isCorrect) => {
-      if (isCorrect) {
+
+    // Passamos o callback que será chamado APENAS quando fechar o relatório
+    this.ui.showQuiz(hotspot, (success) => {
+      if (success) {
+        // Adiciona pontos pelo sucesso (podemos ajustar para dar pontos por questão se preferir,
+        // mas aqui dá o prêmio "Bônus de Vitória" cheio)
         this.state.addScore(this.config.gameplay.points_quiz_correct);
-        
-        // Toca som de vitória
+
         if (sceneData.event?.victory_sound) {
           this.audio.playSFX(sceneData.event.victory_sound);
         }
-        
-        // MOSTRA O GLITCH DERROTADO
+
         if (this.events) {
           this.events.villainDefeated(sceneData);
         } else {
-          // Fallback se events não existir
+          // Fallback
           this.ui.showNarrator(
             sceneData.event?.villain_defeat || "Nããão! Derrotado!",
             () => {
               this.ui.showNarrator(
                 sceneData.event?.victory_message || "Sistema restaurado!",
                 () => this.goHome(),
-                "byte"
+                "byte",
               );
             },
-            "villain"
+            "villain",
           );
         }
-        
-      } else {
-        this.state.addScore(this.config.gameplay.points_quiz_retry);
-        this.ui.showNarrator(
-          hotspot.questions[0]?.feedback_wrong || "Tente novamente!",
-          null,
-          "byte"
-        );
       }
       this.updateUI();
     });
@@ -246,9 +241,9 @@ class GameEngine {
     this.view360?.stopRedAlert();
     this.view360?.hideStaticEffect();
     this.view360?.hideSmokeEffect();
-    
-    const villain = document.getElementById('villain-container');
-    if (villain) villain.style.display = 'none';
+
+    const villain = document.getElementById("villain-container");
+    if (villain) villain.style.display = "none";
   }
 
   updateUI() {
