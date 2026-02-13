@@ -217,17 +217,18 @@ h1 {
   left: 50%;
   transform: translateX(-50%);
   width: 90%;
-  max-width: 800px;
+  max-width: 900px;
   display: flex;
   align-items: flex-end;
-  gap: 20px;
+  /* gap: 20px; */
   pointer-events: none;
   /* IMPORTANTE: Área vazia não bloqueia */
 }
 
 .narrator-sprite {
-  width: 150px;
+  width: 250px;
   filter: drop-shadow(0 0 10px var(--accent-color));
+  flex-shrink: 0; /* ← IMPEDE QUE A IMAGEM ENCOLHA */
 }
 
 .dialog-box {
@@ -239,6 +240,8 @@ h1 {
   position: relative;
   min-height: 100px;
   pointer-events: auto;
+  z-index: 200;
+  width: 100%;
   /* A caixa de texto recebe clique */
 }
 
@@ -413,4 +416,116 @@ h1 {
   50% {
     opacity: 0;
   }
+}
+
+/* Luz vermelha - camada mais baixa */
+#red-alert-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 14; /* Mais baixo */
+}
+
+/* Efeito glitch (linhas) - camada intermediária */
+#glitch-effect-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 15; /* Meio */
+}
+
+#villain-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1.2);
+  z-index: 100;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1.4s cubic-bezier(0.23, 1, 0.32, 1),
+              transform 1.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+#villain-container.visible {
+  opacity: 0.85;
+  transform: translate(-50%, -50%) scale(1.2);
+}
+
+#villain-sprite {
+  width: 550px; /* GRANDE e IMPONENTE */
+  filter: drop-shadow(0 0 30px rgba(255, 0, 0, 0.6)) blur(0.8px);
+  animation: villainFloatImponent 4s infinite ease-in-out;
+  opacity: 0.9;
+  transition: all 0.5s ease;
+}
+
+@keyframes villainFloatImponent {
+  0% {
+    transform: translateY(0px) scale(0.98);
+    filter: drop-shadow(0 0 25px rgba(255, 0, 0, 0.5)) blur(0.8px);
+  }
+  50% {
+    transform: translateY(-15px) scale(1.05);
+    filter: drop-shadow(0 0 45px rgba(255, 0, 0, 0.8)) blur(1.2px);
+  }
+  100% {
+    transform: translateY(0px) scale(0.98);
+    filter: drop-shadow(0 0 25px rgba(255, 0, 0, 0.5)) blur(0.8px);
+  }
+}
+
+/* Ajuste quando o vilão está falando (sem imagem na caixa) */
+.narrator-overlay {
+  transition: justify-content 0.3s ease;
+}
+
+/* Adicione no style.css - Efeito glitch CSS puro */
+@keyframes glitchOverlay {
+  0% { opacity: 0.2; transform: translate(0); }
+  10% { opacity: 0.5; transform: translate(-3px, 1px); }
+  20% { opacity: 0.3; transform: translate(3px, -1px); }
+  30% { opacity: 0.6; transform: translate(-2px, 2px); }
+  40% { opacity: 0.2; transform: translate(2px, -2px); }
+  50% { opacity: 0.5; transform: translate(-1px, 1px); }
+  60% { opacity: 0.3; transform: translate(1px, -1px); }
+  70% { opacity: 0.4; transform: translate(-4px, 2px); }
+  80% { opacity: 0.2; transform: translate(4px, -2px); }
+  90% { opacity: 0.5; transform: translate(-2px, 1px); }
+  100% { opacity: 0.2; transform: translate(0); }
+}
+
+.glitch-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(255, 0, 255, 0.1) 0px,
+    rgba(0, 255, 255, 0.1) 2px,
+    transparent 3px,
+    transparent 5px
+  );
+  animation: glitchOverlay 0.1s infinite;
+}
+
+#glitch-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 16;
+  background-repeat: repeat;
+  mix-blend-mode: screen;
 }
