@@ -20,8 +20,10 @@
       "--font-body": "'Inter', sans-serif"
     },
     "assets": {
-      "narrator_image": "assets/images/byte-drone.png",
-      "glitch_effect": "assets/images/glitch-overlay.png"
+      "narrator_image": "assets/images/byte.png",
+      "glitch_effect": "assets/images/glitch-overlay.png",
+      "villain_image": "assets/images/glitch.png",
+      "villain_name": "GLITCH"
     }
   },
   "gameplay": {
@@ -65,6 +67,15 @@
       "initial_view": "180,-20",
       "audio_ambience": "assets/audio/office-ambience.mp3",
       "narrator_intro": "Acedendo à Memória Histórica... Encontra os periféricos e os pioneiros nas paredes.",
+      "event": {
+        "type": "villain_appears",
+        "alarm_sound": "assets/audio/alarm.mp3",
+        "villain_speech": "Paaaaarado aí, usuário! Achas que podes organizar a minha bagunça? Eu sou o GLITCH! Eu adoro dados perdidos e memórias apagadas. Para quê lembrar da Ada Lovelace ou do Alan Turing? O passado é chato... Eu vou formatar esta sala inteira e transformar a história em LIXO DIGITAL!",
+        "byte_alert": "Alerta! O GLITCH está a tentar apagar o nosso Disco Rígido Histórico! Não deixes que ele vença. Usa o conhecimento que acabaste de adquirir para reconstruir os dados. Responde às perguntas corretamente para enfraquecer o sinal dele!",
+        "villain_defeat": "Nããão! Dados... organizados... demais! Lógica... implacável... Estou a ser... desfragmentadooooo...",
+        "victory_message": "Ameaça neutralizada! O sistema está limpo e seguro novamente. Bom trabalho!",
+        "victory_sound": "assets/audio/victory.mp3"
+      },
       "hotspots": [
         {
           "id": "h_ada",
@@ -110,10 +121,19 @@
       "id": "cpu_interno",
       "name": "Interior da CPU",
       "type": "360",
-      "image": "assets/images/cpu_interno_360.jpg",
+      "image": "assets/images/cpu_interno_360.png",
       "initial_view": "-90,1",
       "audio_ambience": "assets/audio/scifi-drone.mp3",
       "narrator_intro": "Protocolo de miniaturização ativado! Bem-vindo à cidade dos dados.",
+      "event": {
+        "type": "villain_appears",
+        "alarm_sound": "assets/audio/alarm.mp3",
+        "villain_speech": "Bzzzt! Erro 404! Acharam mesmo que iam religar este sistema? Eu adoro o calor do superaquecimento! Vou cortar a energia da Placa-Mãe, derreter o Processador e fazer a Memória RAM esquecer até o próprio nome! O caos reina aqui dentro!",
+        "byte_alert": "Cuidado! Ele está a bloquear a corrente elétrica! Se não respondermos rápido, o sistema vai ter um colapso total (Tela Azul da Morte). Rápido, Arquiteto! Usa o Diagnóstico de Hardware para reconectar os circuitos e expulsar este vírus do sistema!",
+        "villain_defeat": "Nããão! Dados... organizados... demais! Lógica... implacável... Estou a ser... desfragmentadooooo...",
+        "victory_message": "Ameaça neutralizada! O sistema está limpo e seguro novamente. Bom trabalho!",
+        "victory_sound": "assets/audio/victory.mp3"
+      },
       "hotspots": [
         {
           "id": "h_cpu",

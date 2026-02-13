@@ -27,6 +27,21 @@ class UIController {
     this.els.narratorName.textContent = config.narrator.name;
     this.els.narratorImg.src = config.theme.assets.narrator_image;
 
+    // Configuração do B.Y.T.E.
+    this.defaultNarrator = {
+      name: config.narrator.name, // "B.Y.T.E."
+      image: config.theme.assets.narrator_image // byte-drone.png
+    };
+    
+    // Configuração do GLITCH (vilão)
+    this.villainNarrator = {
+      name: config.theme.assets.villain_name || "GLITCH",
+      image: config.theme.assets.villain_image || ""
+    };
+
+    // Inicializa com B.Y.T.E.
+    this.setNarrator("byte");
+
     document.getElementById("btn-start").onclick = onStartClick;
 
     // --- CONFIGURAÇÃO DO BOTÃO HOME ---
@@ -72,16 +87,47 @@ class UIController {
     }
   }
 
-  updateTracker(score, percent) {
+  // Destacar quando exploração completa
+  updateTracker(score, percent, sceneId) {
     this.els.score.textContent = score;
     this.els.progress.textContent = percent + "%";
+    
+    // Quando chegar a 100%, destaca o quiz
+    if (percent === 100 && sceneId) {
+      this.highlightQuizHotspot();
+    }
   }
 
-  // --- Narrador ---
-  showNarrator(text, callback) {
-    // Guarda o callback para ser executado quando clicar no botão "Próximo"
-    this.pendingCallback = callback;
+  // Alterna entre o narrador do vilão e do B.Y.T.E. com base no tipor de fala
+  setNarrator(type) {
+    if (type === "villain") {
+      // VILÃO: NÃO mostra imagem, mostra apenas nome
+      this.els.narratorName.textContent = this.villainNarrator.name; // "GLITCH"
+      
+      // CRÍTICO: Esconde a imagem do vilão na caixa de diálogo
+      this.els.narratorImg.style.display = 'none';
+      
+      // Opcional: Ajusta o layout da caixa de diálogo quando não tem imagem
+      this.els.narratorArea.style.justifyContent = 'center';
+    } else {
+      // B.Y.T.E.: Mostra imagem normalmente
+      this.els.narratorName.textContent = this.defaultNarrator.name; // "B.Y.T.E."
+      this.els.narratorImg.src = this.defaultNarrator.image;
+      this.els.narratorImg.style.display = 'block'; // Mostra a imagem
+      this.els.narratorArea.style.justifyContent = 'flex-start';
+    }
+  }
 
+  // Método para garantir que a imagem do B.Y.T.E. seja restaurada
+  showNarrator(text, callback, speaker = "byte") {
+    // Sempre mostra a imagem do B.Y.T.E. como padrão
+    if (speaker === "byte") {
+      this.els.narratorImg.style.display = 'block';
+      this.els.narratorArea.style.justifyContent = 'flex-start';
+    }
+    
+    this.setNarrator(speaker);
+    this.pendingCallback = callback;
     this.els.narratorArea.style.display = "flex";
     this.els.narratorText.textContent = "";
 
@@ -138,6 +184,36 @@ class UIController {
       const img = document.createElement("img");
       img.src = src;
       container.appendChild(img);
+    }
+  }
+
+  // Destacar que o quiz foi desbloqueado
+  highlightQuizHotspot() {
+    // Encontra todos os hotspots de quiz
+    const quizHotspots = document.querySelectorAll('.hotspot .fa-clipboard-check, .hotspot .fa-bolt');
+    
+    quizHotspots.forEach(icon => {
+      const hotspotButton = icon.closest('.hotspot-button');
+      if (hotspotButton) {
+        // Adiciona efeito de brilho e pulsação
+        hotspotButton.style.animation = 'pulseQuiz 1.5s infinite';
+        hotspotButton.style.boxShadow = '0 0 30px var(--primary-color)';
+        hotspotButton.style.borderColor = 'var(--primary-color)';
+      }
+    });
+    
+    // Adiciona a animação se não existir
+    if (!document.querySelector('#quiz-pulse-style')) {
+      const style = document.createElement('style');
+      style.id = 'quiz-pulse-style';
+      style.textContent = `
+        @keyframes pulseQuiz {
+          0% { transform: translate(-50%, -50%) scale(1); }
+          50% { transform: translate(-50%, -50%) scale(1.2); }
+          100% { transform: translate(-50%, -50%) scale(1); }
+        }
+      `;
+      document.head.appendChild(style);
     }
   }
 
