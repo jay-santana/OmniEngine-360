@@ -2,7 +2,8 @@
   "meta": {
     "title": "Operação Reboot",
     "version": "1.0",
-    "menu_bgm": "assets/audio/boot-sequence.mp3"
+    "menu_bgm": "assets/audio/boot-sequence.mp3",
+    "start_sound": "assets/audio/system-boot.mp3"
   },
   "theme": {
     "colors": {
@@ -23,10 +24,10 @@
       "narrator_image": "assets/images/byte-drone.png",
       "glitch_effect": "assets/images/glitch-overlay.png",
       "villain_image": "assets/images/glitch-sprite.png",
-      "villain_name": "GLITCH"
+      "villain_name": "GLITCH",
+      "byte_large_image": "assets/images/byte-drone-large.png"
     }
   },
-
   "gameplay": {
     "points_per_hotspot": 10,
     "points_quiz_correct": 100,
@@ -36,7 +37,8 @@
   "narrator": {
     "name": "B.Y.T.E.",
     "typing_speed": 30,
-    "intro_text": "Alerta de Sistema! Detectei o seu acesso. O Grande Servidor sofreu um apagão crítico. Eu sou o B.Y.T.E. e preciso da sua ajuda na Operação Reboot!"
+    "intro_text": "Alerta de Sistema! Alerta... Ah, finalmente! Um humano detectado! Saudações. Eu sou o B.Y.T.E., a tua Base de Y-Transferência Educacional. O Grande Servidor do Conhecimento sofreu um apagão crítico. A ligação entre o nosso passado histórico e o nosso hardware foi corrompida! Preciso da tua ajuda para reiniciar o sistema de forma segura. Aceitas a missão na Operação Reboot?",
+    "after_accept_text": "Excelente! Temos dois setores em estado crítico a necessitar de reparação. À esquerda, a Sala de Informática, onde guardamos a nossa memória histórica. À direita, o Núcleo do CPU, o coração físico da máquina. Qual destes módulos vamos restaurar primeiro?"
   },
   "scenes": [
     {
@@ -104,16 +106,6 @@
           "action": "quiz",
           "locked_message": "Você precisa encontrar todos os dados antes de iniciar o teste!",
           "questions": [
-            {
-              "text": "O teclado e o rato pertencem a qual grupo?",
-              "options": [
-                { "text": "Periféricos de Saída", "correct": false },
-                { "text": "Periféricos de Entrada", "correct": true },
-                { "text": "Processadores", "correct": false }
-              ],
-              "feedback_correct": "Exato! Eles enviam dados para o PC.",
-              "feedback_wrong": "Negativo. Eles servem para 'entrar' com comandos."
-            },
             {
               "text": "O teclado e o rato pertencem a qual grupo?",
               "options": [
