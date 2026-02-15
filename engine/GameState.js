@@ -11,9 +11,15 @@ class GameState {
   }
 
   reset() {
+    console.log("🔄 Resetando GameState...");
     this.score = 0;
     this.visitedHotspots.clear();
-    this.eventsTriggered.clear(); // <-- NOVO - Reset completo
+    this.eventsTriggered.clear();
+    this.currentSceneId = null;
+    this.totalHotspotsInScene = 0;
+    this.sceneStartTime = 0;
+    this.quizMistakes = 0;
+    console.log("✅ GameState resetado. visitedHotspots size:", this.visitedHotspots.size);
   }
 
   enterScene(sceneId, totalHotspots) {
@@ -125,5 +131,43 @@ class GameState {
     const minutes = Math.floor(delta / 60000);
     const seconds = ((delta % 60000) / 1000).toFixed(0);
     return minutes > 0 ? `${minutes}m ${seconds}s` : `${seconds}s`;
+  }
+
+  resetGame() {
+    console.log("🔄 Reset completo do jogo iniciado...");
+    
+    // Limpa o cache do config se necessário
+    if (this.config) {
+        // Recarrega o config se quiser garantir dados frescos
+        // this.config = null;
+    }
+    
+    // Remove qualquer evento residual
+    if (this.events) {
+        if (this.events.villainInterval) {
+            clearInterval(this.events.villainInterval);
+            this.events.villainInterval = null;
+        }
+        this.events.isEventActive = false;
+    }
+    
+    // Garante que o Three.js está limpo
+    if (this.view360) {
+        // Remove todos os objetos da cena
+        while(this.view360.scene.children.length > 0) {
+            this.view360.scene.remove(this.view360.scene.children[0]);
+        }
+        
+        // Recria a câmera se necessário
+        this.view360.camera = new THREE.PerspectiveCamera(
+            95,
+            window.innerWidth / window.innerHeight,
+            0.1,
+            1000
+        );
+    }
+    
+    // Chama o goToStartScreen
+    this.goToStartScreen();
   }
 }
