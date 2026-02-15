@@ -84,7 +84,7 @@
 
       <div id="game-ui" class="screen" style="display: none">
         <div class="ui-top">
-          <button id="btn-home" class="icon-btn">
+          <button id="btn-home" class="icon-btn" style="display: none;" title="Voltar ao Hub">
             <i class="fas fa-home"></i>
           </button>
           <div id="mission-tracker">
@@ -152,6 +152,40 @@
             }
           }
         </style>
+      </div>
+
+      <!-- MATRIX BACKGROUND -->
+      <div id="matrix-bg"></div>
+
+      <!-- BOOT ANIMATION OVERLAY -->
+      <div id="boot-animation" style="display: none;">
+        <div class="boot-flash"></div>
+        <div class="boot-cross"></div>
+        <div class="boot-scanlines"></div>
+        <div class="boot-pulse"></div>
+        <!-- Container existente do Byte -->
+        <div class="boot-byte-container">
+          <div class="boot-byte-sprite" id="boot-byte-sprite"></div>
+          <div class="boot-dialog-container" id="boot-dialog-container">
+            <div id="boot-narrator">
+              <div class="dialog-box">
+                <div id="boot-narrator-name" style="color: var(--accent-color); font-weight: bold;">SISTEMA</div>
+                <div id="boot-narrator-text">Inicializando...</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MISSION CONFIRMATION MODAL -->
+      <div id="mission-confirm-modal" class="modal-overlay" style="display: none; z-index: 10000;">
+        <div class="glass-panel confirm-panel">
+          <h2>Aceitas a missão na Operação Reboot?</h2>
+          <div class="confirm-buttons">
+            <button id="btn-confirm-yes" class="cta-button">SIM</button>
+            <button id="btn-confirm-no" class="cta-button secondary">NÃO</button>
+          </div>
+        </div>
       </div>
     </div>
 
