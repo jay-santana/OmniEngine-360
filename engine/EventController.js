@@ -101,7 +101,25 @@ class EventController {
         this.game.ui.showNarrator(
           scene.event.victory_message,
           () => {
-            this.game.goHome();
+            // ALTERAÇÃO AQUI: voltar para seleção de níveis, não tela inicial
+            const hub = this.game.config.scenes.find((s) => s.type === "menu");
+            if (hub) {
+              this.game.loadMenuScene(hub);
+              
+              // Toca a música do menu
+              if (this.game.config.meta.menu_bgm) {
+                this.game.audio.playBGM(this.game.config.meta.menu_bgm);
+              }
+              
+              // Mostra o diálogo do B.Y.T.E. novamente
+              setTimeout(() => {
+                this.game.ui.showNarrator(
+                  this.game.config.narrator.after_accept_text,
+                  null,
+                  "byte"
+                );
+              }, 500);
+            }
           },
           "byte",
         );
@@ -175,4 +193,26 @@ class EventController {
       spriteEl.style.backgroundPosition = "0% 0%";
     }
   }
+
+  resetEvents() {
+    console.log("🔄 Resetando EventController...");
+    
+    // Para o intervalo do vilão
+    if (this.villainInterval) {
+        clearInterval(this.villainInterval);
+        this.villainInterval = null;
+    }
+    
+    // Reseta flags
+    this.isEventActive = false;
+    
+    // Esconde o sprite do vilão
+    this.hideVillainSprite();
+    
+    // Limpa qualquer timeout pendente
+    const highestTimeoutId = setTimeout(() => {});
+    for (let i = 0; i < highestTimeoutId; i++) {
+        clearTimeout(i);
+    }
+}
 }
