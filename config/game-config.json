@@ -22,10 +22,21 @@
     },
     "assets": {
       "narrator_image": "assets/images/byte-drone.png",
-      "glitch_effect": "assets/images/glitch-overlay.png",
+      "narrator_sprite_config": {
+        "cols": 6,
+        "rows": 3,
+        "totalFrames": 18,
+        "fps": 12
+      },
       "villain_image": "assets/images/glitch-sprite.png",
-      "villain_name": "GLITCH",
-      "byte_large_image": "assets/images/byte-drone-large.png"
+      "villain_sprite_config": {
+        "cols": 6,
+        "rows": 3,
+        "totalFrames": 18,
+        "fps": 12
+      },
+      "glitch_effect": "assets/images/glitch-overlay.png",
+      "villain_name": "GLITCH"
     }
   },
   "gameplay": {
