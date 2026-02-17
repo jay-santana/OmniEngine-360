@@ -414,7 +414,7 @@ body.quiz-active #mission-tracker {
   text-shadow: 0 1px 2px black;
   pointer-events: none;
   white-space: nowrap;
-  max-width: 150px;
+  max-width: fit-content;
   overflow: hidden;
   text-overflow: ellipsis;
   z-index: calc(var(--z-hotspots) + 1);
