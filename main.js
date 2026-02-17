@@ -92,6 +92,11 @@ class GameEngine {
       // QUINTO: Limpa o estado do jogo se necessário
       document.body.classList.remove("at-start");
 
+       // --- NOVO: Reseta os módulos completados ---
+      if (this.state) {
+        this.state.completedModules.clear();
+      }
+
       // SEXTO: Carrega o hub DIRETAMENTE, sem delay
       const hub = this.config.scenes.find((s) => s.type === "menu");
       if (hub) {
@@ -295,8 +300,10 @@ class GameEngine {
         clearInterval(this.ui.talkingInterval);
         this.ui.talkingInterval = null;
       }
-      this.ui.setSpriteFrame(0, 0);
       this.ui.pendingCallback = null;
+      if (this.ui.narratorAnimator) {
+        this.ui.narratorAnimator.stop();
+      }
     }
 
     // 10. Esconde TODAS as telas
@@ -634,6 +641,33 @@ class GameEngine {
     const percent = scene ? this.state.getProgressPercent(scene.hotspots) : 0;
 
     this.ui.updateTracker(this.state.score, percent, this.state.currentSceneId);
+  }
+
+  // NOVO MÉTODO 1: Sequência final
+  playFinalSequence() {
+    console.log("🎬 Finalizando jogo - todos os módulos concluídos!");
+    
+    // 1. Esconde a cena 360
+    document.getElementById("scene-container").style.display = "none";
+    
+    // 2. Reseta o estado do jogo (isso já limpa score, hotspots, módulos, etc)
+    if (this.state) {
+      this.state.reset();
+    }
+    
+    // 3. Para a música ambiente
+    if (this.audio) {
+      this.audio.stopBGM();
+    }
+    
+    // 4. Ativa a matrix
+    this.setMatrixState(true);
+    
+    // 5. Executa o boot final
+    this.ui.runBootSequence(this.audio, () => {
+      // Quando o boot terminar, USA O goToStartScreen que já faz TUDO
+      this.goToStartScreen();
+    }, this.config.narrator.final_text);
   }
 }
 

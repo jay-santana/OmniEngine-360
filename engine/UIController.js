@@ -167,7 +167,10 @@ class UIController {
   }
 
   // --- NOVO MÉTODO PARA GERENCIAR O BOOT ---
-  runBootSequence(audioController, onComplete) {
+  runBootSequence(audioController, onComplete, customText) {
+    // Agora sim, define qual texto usar
+    const textToShow = customText || this.config.narrator.intro_text;
+
     const els = {
       animation: document.getElementById("boot-animation"),
       byteContainer: document.querySelector(".boot-byte-container"),
@@ -228,15 +231,14 @@ class UIController {
         bootAnimator.removeClass("byte-pulsing");
         bootAnimator.play();
         els.dialogContainer.classList.add("visible");
-        audioController.speak(this.config.narrator.intro_text, "byte");
+        audioController.speak(textToShow, "byte");
         cloneText.textContent = "";
 
         // Efeito de Digitação
         let i = 0;
-        const text = this.config.narrator.intro_text;
         const interval = setInterval(() => {
-          if (i < text.length) {
-            cloneText.textContent += text.charAt(i);
+          if (i < textToShow.length) {
+            cloneText.textContent += textToShow.charAt(i);
             if (i % 2 === 0) audioController.playTypingBeep("high");
             i++;
           } else {
@@ -247,11 +249,11 @@ class UIController {
 
         // 5. Finalização (Click do Botão)
         cloneBtn.onclick = () => {
-          if (i < text.length) {
+          if (i < textToShow.length) {
             clearInterval(interval);
-            cloneText.textContent = text;
+            cloneText.textContent = textToShow;
             bootAnimator.stop();
-            i = text.length;
+            i = textToShow.length;
             audioController.stopSpeech();
           } else {
             clearInterval(interval);

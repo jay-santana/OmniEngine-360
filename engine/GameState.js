@@ -8,6 +8,18 @@ class GameState {
     this.totalHotspotsInScene = 0;
     this.sceneStartTime = 0;
     this.quizMistakes = 0;
+    // NOVO: Rastrear módulos concluídos
+    this.completedModules = new Set();
+  }
+
+  // --- NOVO MÉTODO ---
+  completeModule(sceneId) {
+    this.completedModules.add(sceneId);
+    
+    // Conta quantos módulos NÃO-HUB existem no jogo (cenas tipo "360")
+    const totalModules = this.config.scenes.filter(s => s.type === "360").length;
+    
+    return this.completedModules.size === totalModules;
   }
 
   // --- ATUALIZADO: RESET COMPLETO COM PONTUAÇÃO ---
@@ -63,6 +75,7 @@ class GameState {
     this.totalHotspotsInScene = 0;
     this.sceneStartTime = 0;
     this.quizMistakes = 0;
+    this.completedModules.clear(); // NOVO - Limpa módulos concluídos
     this.notifyTracker();
   }
 

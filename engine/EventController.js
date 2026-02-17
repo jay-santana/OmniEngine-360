@@ -100,25 +100,35 @@ class EventController {
         this.game.ui.showNarrator(
           scene.event.victory_message,
           () => {
-            // Reset da cena e volta para o Menu
-            console.log("Reiniciando dados da cena:", scene.id);
-            this.game.state.resetScene(scene.id, true);
+            // --- ÚNICA MUDANÇA AQUI ---
+            // Verifica se é o último módulo
+            const isLastModule = this.game.state.completeModule(scene.id);
+            
+            if (isLastModule) {
+              // Se for o último, vai para a sequência final
+              this.game.playFinalSequence();
+            } else {
+              // Se não for, volta ao hub normalmente
+              // Reset da cena e volta para o Menu
+              console.log("Reiniciando dados da cena:", scene.id);
+              this.game.state.resetScene(scene.id, true);
 
-            const hub = this.game.config.scenes.find((s) => s.type === "menu");
-            if (hub) {
-              this.game.loadMenuScene(hub);
+              const hub = this.game.config.scenes.find((s) => s.type === "menu");
+              if (hub) {
+                this.game.loadMenuScene(hub);
 
-              if (this.game.config.meta.menu_bgm) {
-                this.game.audio.playBGM(this.game.config.meta.menu_bgm);
+                if (this.game.config.meta.menu_bgm) {
+                  this.game.audio.playBGM(this.game.config.meta.menu_bgm);
+                }
+
+                setTimeout(() => {
+                  this.game.ui.showNarrator(
+                    this.game.config.narrator.select_module_text,
+                    null,
+                    "byte",
+                  );
+                }, 500);
               }
-
-              setTimeout(() => {
-                this.game.ui.showNarrator(
-                  this.game.config.narrator.select_module_text,
-                  null,
-                  "byte",
-                );
-              }, 500);
             }
           },
           "byte",

@@ -48,6 +48,7 @@
     "intro_text": "Saudações! Eu sou o B.Y.T.E., o teu assistente de diagnóstico. O Grande Servidor do Conhecimento sofreu um apagão crítico. A ligação entre o nosso passado histórico e o nosso hardware foi corrompida! Preciso da tua ajuda para reiniciar o sistema de forma segura. Aceitas a missão na Operação Reboot?",
     "after_accept_text": "Temos dois setores em estado crítico. À esquerda, a Sala de Informática (Memória Histórica). À direita, o Núcleo do CPU (Hardware). Qual destes módulos desejas restaurar?",
     "select_module_text": "Missão cumprida! O sistema está estável, mas ainda há trabalho a fazer. ESCOLHA O PRÓXIMO MÓDULO QUE DESEJA REPARAR.",
+    "final_text": "Missão cumprida! Sistemas 100% restaurados. O Grande Servidor do Conhecimento está novamente operacional. A humanidade pode continuar a aprender com o passado e a construir o futuro. Obrigado por participares na Operação Reboot. Até a próxima, Arquiteto!",
     "messages": {
       "verification_unlocked": "Protocolo de Verificação desbloqueado! O GLITCH foi detectado. Clique no ícone para iniciar o confronto!",
       "access_denied": "Acesso negado. Você precisa investigar todos os componentes da sala antes de desafiar o GLITCH."
@@ -100,7 +101,7 @@
           "label": "Teclado",
           "labelPosition": "right",
           "action": "dialog",
-          "content": "Este é um Periférico de Entrada essencial para enviar comandos de texto e atalhos para o processador. Curiosidade: Sua origem vem das máquinas de escrever de 1868 (EUA), criadas por Christopher Sholes."
+          "content": "Este é o Teclado! Um Periférico de Entrada que serve para digitar comandos e texto no computador. Ele é essencial para a interação com o sistema. Curiosidade: O primeiro teclado de computador foi criado em 1964 (EUA) por Douglas Engelbart, e era baseado no layout das máquinas de escrever da época!"
         },
         {
           "id": "h_mouse",
@@ -109,7 +110,7 @@
           "label": "Mouse",
           "labelPosition": "right",
           "action": "dialog",
-          "content": "Este é um Periférico de Entrada e serve para controlar o cursor na tela com o movimento da tua mão. Criado em 1964 (EUA) por Douglas Engelbart. Curiosidade: O primeiro modelo da história não era de plástico, mas sim uma caixa de madeira com duas rodinhas de metal por baixo!"
+          "content": "Este é o Mouse! Um Periférico de Entrada que serve para apontar, clicar e interagir com os elementos na tela. Ele é essencial para a navegação gráfica do sistema. Curiosidade: O mouse foi inventado por Douglas Engelbart em 1963 (EUA) e era feito de madeira, com apenas um botão!"
         },
         {
           "id": "h_monitor",
@@ -118,7 +119,7 @@
           "label": "Monitor",
           "labelPosition": "right",
           "action": "dialog",
-          "content": "Este é um clássico Periférico de Saída. Ele serve para mostrar visualmente o resultado do processamento de dados, transformando os dados em luz e imagem. Curiosidade: Um pixel é o menor ponto de luz na tela. Sabias que um monitor Full HD tem mais de 2 milhões de pixels piscando ao mesmo tempo para formar a imagem que vês agora?"
+          "content": "Este é o Monitor! Um Periférico de Saída que exibe informações visuais do computador. Ele é essencial para interagir com o sistema e ver os resultados do processamento. Curiosidade: O primeiro monitor de computador foi criado em 1951 (EUA) e era tão grande quanto um armário."
         },
         {
           "id": "h_sound-box",
@@ -127,7 +128,7 @@
           "label": "Caixa de Som",
           "labelPosition": "right",
           "action": "dialog",
-          "content": "Este é um Periférico de Saída de áudio. Serve para o computador emitir sons, músicas e alertas de sistema para tu ouvires. Curiosidade: Os primeiros computadores só faziam 'bip' e 'bop'. Hoje, conseguimos som de cinema graças à evolução das placas de som!"
+          "content": "Esta é a Caixa de Som! Um Periférico de Saída que reproduz o áudio do computador. Ela é essencial para ouvir música, efeitos sonoros e comunicação por voz. Curiosidade: As primeiras caixas de som de computador eram tão grandes que ocupavam uma sala inteira!"
         },
         {
           "id": "h_headset",
@@ -136,7 +137,7 @@
           "label": "Headset",
           "labelPosition": "right",
           "action": "dialog",
-          "content": "Atenção, este é um Periférico Híbrido! Ou seja, de entrada e saída. Ele serve para ouvir e falar ao mesmo tempo! Os fones são Saída e o microfone é Entrada. Curiosidade: Foi criado originalmente para telefonistas e pilotos de avião ficarem com as mãos livres, antes de virar moda nos jogos."
+          "content": "Este é o Headset! Um Periférico Misto que combina fones de ouvido (saída) e microfone (entrada). Ele é essencial para comunicação por voz, jogos online e videoconferências. Curiosidade: O primeiro headset foi criado em 1910 (EUA) para operadores de telefone, e era tão pesado que precisava ser apoiado por um suporte!"
         },
         {
           "id": "h_printer",
@@ -145,7 +146,7 @@
           "label": "Impressora",
           "labelPosition": "right",
           "action": "dialog",
-          "content": "Normalmente, a impressora é um Periférico de Saída, pois imprime informações do computador para o papel. Mas atenção! Se ela for “Multifuncional”, e tiver um Scanner, ela se torna um Periférico Misto, servindo para imprimir (saída) e escanear (entrada), ou seja, transforma o papel em digital e vice-versa. Curiosidade: Sabias que as impressoras 3D mais modernas já conseguem 'imprimir' casas inteiras e comidas?"
+          "content": "Esta é a Impressora! Um Periférico de Saída. Ela serve para imprimir informações do computador para o papel. Mas atenção! Se ela for “Multifuncional”, e tiver um Scanner, ela se torna um Periférico Misto, servindo para imprimir (saída) e escanear (entrada), ou seja, transforma o papel em digital e vice-versa. Curiosidade: Sabias que as impressoras 3D mais modernas já conseguem 'imprimir' casas inteiras e comidas?"
         },
         {
           "id": "h_floppy-disk",
@@ -154,7 +155,7 @@
           "label": "Disquete",
           "labelPosition": "right",
           "action": "dialog",
-          "content": "Uma relíquia! Este é um disco magnético que serve para guardar arquivos pequenos. Foi popularizado pela IBM em 1971 (EUA). Curiosidade: Ele guardava apenas 1,44 MB. Para instalar um jogo moderno como Fortnite usando disquete, precisarias de uma pilha de quase 30.000 disquetes!"
+          "content": "Uma relíquia! Este é o Disquete! Um Periférico de Entrada. Ele serve para guardar arquivos pequenos. Foi popularizado pela IBM em 1971 (EUA). Curiosidade: Ele guardava apenas 1,44 MB. Para instalar um jogo moderno como Fortnite usando disquete, precisarias de uma pilha de quase 30.000 disquetes!"
         },
         {
           "id": "h_cd-rom",
@@ -163,7 +164,7 @@
           "label": "CD-ROM",
           "labelPosition": "right",
           "action": "dialog",
-          "content": "A evolução do Disquete! Este disco serve para guardar dados como músicas, jogos, etc., guardando cerca de 700 MB. Ele usa laser para ler e gravar dados. Foi criado em 1982 (Japão/Holanda). Curiosidade: Sabias que a capacidade do CD-ROM (74 minutos) foi escolhida pelo presidente da Sony só para que a 9ª Sinfonia de Beethoven coubesse inteira num único disco?"
+          "content": "A evolução do Disquete! Este é o CD-ROM! Ele é um Periférico de Entrada. Serve para guardar dados como músicas, jogos, etc., guardando cerca de 700 MB. Ele usa laser para ler e gravar dados. Foi criado em 1982 (Japão/Holanda). Curiosidade: Sabias que a capacidade do CD-ROM (74 minutos) foi escolhida pelo presidente da Sony só para que a 9ª Sinfonia de Beethoven coubesse inteira num único disco?"
         },
         {
           "id": "h_pendrive",
@@ -172,43 +173,264 @@
           "label": "Pendrive",
           "labelPosition": "right",
           "action": "dialog",
-          "content": "Pequeno, mas poderoso! Serve para transportar grande quantidade de dados no bolso. Surgiu por volta do ano 2000 (Israel/Singapura). Curiosidade: Um único Pen Drive simples de 32 GB consegue guardar o conteúdo de mais de 22.000 disquetes!"
+          "content": "Pequeno, mas poderoso! Este é o Pendrive! Ele serve para transportar grande quantidade de dados no bolso. Surgiu por volta do ano 2000 (Israel/Singapura). Curiosidade: Um único Pen Drive simples de 32 GB consegue guardar o conteúdo de mais de 22.000 disquetes!"
         },
         {
           "id": "h_ada",
-          "position": "103,18",
+          "position": "115,10",
           "icon": "user-graduate",
           "label": "Ada Lovelace",
           "labelPosition": "top",
           "action": "dialog",
-          "content": "Esta é a Condessa Ada Lovelace (Inglaterra, 1843). Ela percebeu que a máquina criada por Babbage podia fazer mais do que contas. Curiosidade:  Ela é considerada a primeira programadora da história! Foi ela quem escreveu o primeiro algoritmo para computador, 100 anos antes de existir um computador eletrônico!"
+          "content": "Esta é a Ada Lovelace (Inglaterra, 1843). Ela é considerada a primeira programadora da história. Ela escreveu o primeiro algoritmo para a 'Máquina Analítica' de Charles Babbage. Curiosidade: Ela previu que um dia as máquinas poderiam criar arte e música, muito antes de existirem computadores modernos!"
         },
         {
           "id": "h_babbage",
-          "position": "142,13",
+          "position": "135,09",
           "icon": "user-graduate",
           "label": "Charles Babbage",
           "labelPosition": "top",
           "action": "dialog",
-          "content": "Este é Charles Babbage (Inglaterra, 1837). Ele projetou a 'Máquina Analítica' mecânica para fazer cálculos sem erros. Curiosidade: Conhecido como o 'Avô do Computador', ele nunca conseguiu terminá-la porque a tecnologia da época não era avançada o suficiente!"
+          "content": "Este é o Charles Babbage (Inglaterra, 1822). Ele é conhecido como o 'Pai do Computador'. Ele projetou a 'Máquina Diferencial' e a 'Máquina Analítica', que são consideradas os primeiros conceitos de computador mecânico. Curiosidade: Ele também foi um dos primeiros a imaginar um dispositivo que pudesse ser programado usando cartões perfurados, uma ideia que influenciou o desenvolvimento dos computadores modernos!"
+        },
+        {
+          "id": "h_turing",
+          "position": "-111,7",
+          "icon": "user-graduate",
+          "label": "Alan Turing",
+          "labelPosition": "top",
+          "action": "dialog",
+          "content": "Este é Alan Turing (Inglaterra, 1936). Considerado o Pai da Ciência da Computação. Ele criou a lógica matemática da 'Máquina Universal' que permite que o teu PC funcione hoje. Curiosidade: Durante a 2ª Guerra Mundial, usou sua genialidade para quebrar  códigos secretos nazistas da máquina Enigma, salvando milhões de vidas."
+        },
+        {
+          "id": "h_hopper",
+          "position": "-95,7",
+          "icon": "user-graduate",
+          "label": "Grace Hopper",
+          "labelPosition": "top",
+          "action": "dialog",
+          "content": "Esta é a Almirante Grace Hopper (EUA, 1952), a mãe da linguagem de programação 'COBOL'. Ela criou o primeiro 'Compilador'. Isso serviu para permitir que humanos programassem computadores usando palavras em inglês em vez de apenas códigos numéricos (zero e um). Curiosidade: Foi ela quem popularizou o termo 'debugging' (inseto), que é o processo de encontrar e corrigir erros no código, porque encontrou uma traça de verdade presa nos circuitos que estava a parar o computador!"
+        },
+        {
+          "id": "h_johnson",
+          "position": "-78,7",
+          "icon": "user-graduate",
+          "label": "Katherine Johnson",
+          "labelPosition": "top",
+          "action": "dialog",
+          "content": "Esta é a Katherine Johnson (EUA, 1961). Ela foi uma das primeiras mulheres a trabalhar como matemática na NASA. Ela fez cálculos complexos para os primeiros voos espaciais da história, incluindo o primeiro voo tripulado da Apollo 11. Curiosidade: Seu trabalho foi essencial para o sucesso do projeto Apollo e ela foi reconhecida com o Prêmio Nacional de Ciência em 2017."
+        },
+        {
+          "id": "h_hamilton",
+          "position": "-62,6",
+          "icon": "user-graduate",
+          "label": "Margaret Hamilton",
+          "labelPosition": "top",
+          "action": "dialog",
+          "content": "Esta é a Margaret Hamilton (EUA, 1969). Ela foi uma das primeiras programadoras de software da história. Criou o software para os primeiros voos tripulados da Apollo 11. Curiosidade: Ela foi a primeira a usar o termo 'software engineering' (engenharia de software) e o código que ela escreveu para a Apollo 11 era tão robusto que impediu o computador da nave de travar segundos antes de pousar na Lua, salvando a missão!"
+        },
+        {
+          "id": "h_lamarr",
+          "position": "-28,6",
+          "icon": "user-graduate",
+          "label": "Hedy Lamarr",
+          "labelPosition": "top",
+          "action": "dialog",
+          "content": "Esta é a Hedy Lamarr (EUA, 1942). Ela foi uma atriz e inventora que desenvolveu uma técnica de comunicação que serviu como base para os sistemas de comunicação sem fio modernos, como o Wi-Fi e o Bluetooth. Curiosidade: Ela também foi a primeira mulher a obter patentes nos EUA por invenções técnicas!"
+        },
+        {
+          "id": "h_perlman",
+          "position": "-16,6",
+          "icon": "user-graduate",
+          "label": "Radia Perlman",
+          "labelPosition": "top",
+          "action": "dialog",
+          "content": "Esta é a Radia Perlman (EUA, 1970). Ela foi uma das pioneiras da engenharia de redes e desenvolveu o algoritmo de roteamento chamado 'algoritmo de Perlman'. Este algoritmo é fundamental para a operação das redes locais (LANs) modernas. Curiosidade: Ela também foi uma das primeiras mulheres a trabalhar em sistemas de rede em grandes empresas como DEC e Xerox!"
+        },
+        {
+          "id": "h_cerf",
+          "position": "-5,6",
+          "icon": "user-graduate",
+          "label": "Vint Cerf",
+          "labelPosition": "top",
+          "action": "dialog",
+          "content": "Este é o Vint Cerf (EUA, 1970). Ele é conhecido como um dos 'pais da Internet'. Ele ajudou a desenvolver o protocolo TCP/IP, que é fundamental para a comunicação entre computadores na Internet. Curiosidade: Ele também foi um dos primeiros a trabalhar em sistemas de rede e foi convidado para participar da criação do protocolo que tornou possível a comunicação global na web!"
+        },
+        {
+          "id": "h_kahn",
+          "position": "7,6",
+          "icon": "user-graduate",
+          "label": "Bob Kahn",
+          "labelPosition": "top",
+          "action": "dialog",
+          "content": "Este é o Bob Kahn (EUA, 1970). Ele é conhecido por ser um dos 'pais da Internet' junto com Vint Cerf. Ele ajudou a desenvolver o protocolo TCP/IP, que é fundamental para a comunicação entre computadores na Internet. Curiosidade: Ele também foi um dos primeiros a trabalhar em sistemas de rede e foi convidado para participar da criação do protocolo que tornou possível a comunicação global na web!"
+        },
+        {
+          "id": "h_berners_lee",
+          "position": "22,6",
+          "icon": "user-graduate",
+          "label": "Tim Berners-Lee",
+          "labelPosition": "top",
+          "action": "dialog",
+          "content": "Este é o Tim Berners-Lee (EUA, 1989). Ele é conhecido por ter criado a World Wide Web (WWW), que é a base da Internet moderna. Ele desenvolveu o protocolo HTTP e o HTML, que são fundamentais para a navegação na web. Curiosidade: Ele também é um defensor da internet aberta e gratuita, e continua a trabalhar para garantir que a web permaneça um espaço livre e acessível para todos!"
+        },
+        {
+          "id": "h_engelbart",
+          "position": "53,8",
+          "icon": "user-graduate",
+          "label": "Douglas Engelbart",
+          "labelPosition": "top",
+          "action": "dialog",
+          "content": "Este é o Douglas Engelbart (EUA, 1989). Ele é conhecido por ter criado o mouse e desenvolvido o conceito de interface de usuário baseada em grafismo. Ele também foi um dos pioneiros no desenvolvimento de sistemas colaborativos e na ideia de uma rede de computadores interconectados. Curiosidade: Ele foi um dos primeiros a imaginar uma rede global de comunicação entre computadores!"
+        },
+        {
+          "id": "h_torvalds",
+          "position": "72,10",
+          "icon": "user-graduate",
+          "label": "Linus Torvalds",
+          "labelPosition": "top",
+          "action": "dialog",
+          "content": "Este é o Linus Torvalds (EUA, 1991). Ele é conhecido por ter criado o kernel Linux, que é a base do sistema operacional Linux. Ele também é um dos principais desenvolvedores do projeto GNU e contribuiu significativamente para o desenvolvimento de software livre e de código aberto. Curiosidade: a mascote do Linux, o pinguim Tux, foi escolhida por Linus porque ele é um grande fã de pinguins e achava que eles eram fofos!"
         },
         {
           "id": "h_quiz_sala",
-          "position": "-120,5",
+          "position": "-140,6",
           "icon": "clipboard-check",
           "label": "Protocolo de Verificação",
           "action": "quiz",
           "locked_message": "Você precisa encontrar todos os dados antes de iniciar o teste!",
           "questions": [
             {
-              "text": "O teclado e o rato pertencem a qual grupo?",
+              "text": "O Teclado e o Mouse foram criados para enviar ordens ao PC. Que tipo de periféricos são?",
               "options": [
-                { "text": "Periféricos de Saída", "correct": false },
-                { "text": "Periféricos de Entrada", "correct": true },
-                { "text": "Processadores", "correct": false }
+                { "text": "Saída", "correct": false },
+                { "text": "Entrada", "correct": true },
+                { "text": "Processamento", "correct": false },
+                { "text": "Armazenamento", "correct": false }
               ],
-              "feedback_correct": "Exato! Eles enviam dados para o PC.",
-              "feedback_wrong": "Negativo. Eles servem para 'entrar' com comandos."
+              "feedback_correct": "Correto! Eles enviam dados para o computador, por isso são periféricos de entrada.",
+              "feedback_wrong": "Incorreto! Pense na direção dos dados: eles estão saindo de você e entrando na máquina?"
+            },
+            {
+              "text": "O Monitor mostra o resultado em forma de luz e imagem. Ele é um periférico de:",
+              "options": [
+                { "text": "Entrada", "correct": false },
+                { "text": "Saída", "correct": true },
+                { "text": "Entrada e Saída", "correct": false },
+                { "text": "Refrigeração", "correct": false }
+              ],
+              "feedback_correct": "Isso mesmo! O monitor exibe informações, é um periférico de saída.",
+              "feedback_wrong": "Incorreto! A função dele é mostrar o resultado do processamento, não receber comandos."
+            },
+            {
+              "text": "O Headset tem fones para ouvir e microfone para falar. Como o classificamos?",
+              "options": [
+                { "text": "Apenas Entrada", "correct": false },
+                { "text": "Apenas Saída", "correct": false },
+                { "text": "Periférico Misto (Entrada e Saída)", "correct": true },
+                { "text": "Dispositivo de Armazenamento", "correct": false }
+              ],
+              "feedback_correct": "Perfeito! Ele combina as duas funções, por isso é misto.",
+              "feedback_wrong": "Incorreto! Se ele tem um microfone (entrada) e fones de ouvido (saída), qual seria a classificação?"
+            },
+            {
+              "text": "O Pen Drive substituiu o Disquete. Quantos disquetes de 1.44MB cabem num Pen Drive de 32GB?",
+              "options": [
+                { "text": "Mais de 22.000", "correct": true },
+                { "text": "10", "correct": false },
+                { "text": "100", "correct": false },
+                { "text": "Nenhum", "correct": false }
+              ],
+              "feedback_correct": "Exato! A diferença de capacidade é gigantesca.",
+              "feedback_wrong": "Incorreto! Lembre-se que 1GB equivale a mais de 1000 MB. A conta é bem grande."
+            },
+            {
+              "text": "Quem é considerada a primeira programadora da história por ter escrito o primeiro algoritmo?",
+              "options": [
+                { "text": "Margaret Hamilton", "correct": false },
+                { "text": "Ada Lovelace", "correct": true },
+                { "text": "Hedy Lamarr", "correct": false },
+                { "text": "Katherine Johnson", "correct": false }
+              ],
+              "feedback_correct": "Isso mesmo! Ada Lovelace escreveu o algoritmo para a máquina de Babbage.",
+              "feedback_wrong": "Incorreto! Esta matemática do século XIX é frequentemente chamada de 'mãe da programação'."
+            },
+            {
+              "text": "Grace Hopper (EUA) inventou o \"Compilador\". Para que serviu essa invenção?",
+              "options": [
+                { "text": "Para permitir programar usando inglês em vez de códigos numéricos", "correct": true },
+                { "text": "Para resfriar o computador", "correct": false },
+                { "text": "Para criar jogos 3D", "correct": false },
+                { "text": "Para ligar o computador", "correct": false }
+              ],
+              "feedback_correct": "Correto! Foi a ponte que tornou a programação mais parecida com a linguagem humana.",
+              "feedback_wrong": "Incorreto! A invenção dela 'traduz' o que queremos fazer para a linguagem que o computador entende (código de máquina)."
+            },
+            {
+              "text": "Hedy Lamarr, atriz e inventora, criou o \"Salto de Frequência\" (1941). Que tecnologias modernas usam isso hoje?",
+              "options": [
+                { "text": "O Monitor LCD", "correct": false },
+                { "text": "A Impressora 3D", "correct": false },
+                { "text": "O Wi-Fi e o Bluetooth", "correct": true },
+                { "text": "O Mouse Ótico", "correct": false }
+              ],
+              "feedback_correct": "Isso mesmo! A ideia dela é a base para as comunicações sem fio modernas.",
+              "feedback_wrong": "Incorreto! Pense em tecnologias que transmitem dados sem cabos e precisam evitar interferências."
+            },
+            {
+              "text": "Tim Berners-Lee (1989) queria facilitar o compartilhar informações. O que ele criou?",
+              "options": [
+                { "text": "A World Wide Web (WWW), sites e links", "correct": true },
+                { "text": "O chip de processador", "correct": false },
+                { "text": "O Mouse", "correct": false },
+                { "text": "O Pen Drive", "correct": false }
+              ],
+              "feedback_correct": "Correto! Ele criou a teia mundial, a WWW, que usamos para acessar a internet.",
+              "feedback_wrong": "Incorreto! A criação dele é o sistema de páginas com links que você usa no navegador, não o hardware."
+            },
+            {
+              "text": "Katherine Johnson (NASA) foi fundamental nos anos 60. Qual foi a sua função?",
+              "options": [
+                { "text": "Criar o Linux", "correct": false },
+                { "text": "Calcular à mão as trajetórias para levar o homem ao espaço", "correct": true },
+                { "text": "Desenhar o teclado", "correct": false },
+                { "text": "Inventar a câmera digital", "correct": false }
+              ],
+              "feedback_correct": "Perfeito! A precisão dos cálculos dela foi essencial para o sucesso das missões espaciais.",
+              "feedback_wrong": "Incorreto! O trabalho dela era essencial para responder a perguntas como 'qual o caminho até a Lua?'"
+            },
+            {
+              "text": "Douglas Engelbart mudou a forma como usamos o PC ao inventar?",
+              "options": [
+                { "text": "O Teclado", "correct": false },
+                { "text": "O Pen Drive", "correct": false },
+                { "text": "O Mouse", "correct": true },
+                { "text": "A Placa de Som", "correct": false }
+              ],
+              "feedback_correct": "Exato! Ele apresentou o mouse como uma forma mais intuitiva de interagir com o computador.",
+              "feedback_wrong": "Incorreto! Pense em um dispositivo que usamos para apontar e clicar em ícones e menus."
+            },
+            {
+              "text": "Alan Turing (Inglaterra) é famoso por criar a \"Máquina Universal\" e também por:",
+              "options": [
+                { "text": "Inventar o Facebook", "correct": false },
+                { "text": "Quebrar códigos secretos nazistas na 2ª Guerra Mundial", "correct": true },
+                { "text": "Criar o Windows", "correct": false },
+                { "text": "Inventar a impressora", "correct": false }
+              ],
+              "feedback_correct": "Correto! O trabalho dele de criptoanálise foi crucial para os Aliados.",
+              "feedback_wrong": "Incorreto! Durante a Segunda Guerra Mundial, ele liderou uma equipe que decifrava mensagens inimigas."
+            },
+            {
+              "text": "Linus Torvalds é famoso por criar qual sistema de código aberto?",
+              "options": [
+                { "text": "Windows", "correct": false },
+                { "text": "MacOs", "correct": false },
+                { "text": "iOS", "correct": false },
+                { "text": "Linux", "correct": true }
+              ],
+              "feedback_correct": "Isso mesmo! Ele é o criador original do kernel Linux, a base de muitos sistemas.",
+              "feedback_wrong": "Incorreto! É um sistema operacional famoso por ser livre e de código aberto, concorrente do Windows."
             }
           ]
         }
@@ -221,12 +443,12 @@
       "image": "assets/images/cpu_interno_360.png",
       "initial_view": "-90,1",
       "audio_ambience": "assets/audio/scifi-drone.mp3",
-      "narrator_intro": "Protocolo de miniaturização ativado! Bem-vindo à cidade dos dados.",
+      "narrator_intro": "Protocolo de miniaturização ativado! Estás dentro da máquina! Agora, explora os componentes internos para entender como eles funcionam para liberar o Diagnóstico de Hardware e enfrentar o GLITCH!",
       "event": {
         "type": "villain_appears",
         "alarm_sound": "assets/audio/alarm.mp3",
         "villain_speech": "Bzzzt! Erro 404! Acharam mesmo que iam religar este sistema? Eu adoro o calor do superaquecimento! Vou cortar a energia da Placa-Mãe, derreter o Processador e fazer a Memória RAM esquecer até o próprio nome! O caos reina aqui dentro!",
-        "byte_alert": "Cuidado! Ele está a bloquear a corrente elétrica! Se não respondermos rápido, o sistema vai ter um colapso total (Tela Azul da Morte). Rápido, Arquiteto! Usa o Diagnóstico de Hardware para reconectar os circuitos e expulsar este vírus do sistema!",
+        "byte_alert": "Cuidado! Ele está a bloquear a corrente elétrica! Se não respondermos rápido, o sistema vai ter um colapso total. Rápido, Arquiteto! Usa o Diagnóstico de Hardware para reconectar os circuitos e expulsar este vírus do sistema!",
         "villain_defeat": "Nããão! Dados... organizados... demais! Lógica... implacável... Estou a ser... desfragmentadooooo...",
         "victory_message": "Ameaça neutralizada! O sistema está limpo e seguro novamente. Bom trabalho!",
         "victory_sound": "assets/audio/victory.mp3"
@@ -234,29 +456,243 @@
       "hotspots": [
         {
           "id": "h_cpu",
-          "position": { "yaw": 0, "pitch": 0 },
+          "position": "",
           "icon": "microchip",
           "label": "Processador",
+          "labelPosition": "",
           "action": "dialog",
-          "content": "O Cérebro (CPU): Realiza bilhões de cálculos por segundo. O cooler em cima impede que ele derreta."
+          "content": "Este é o Processador, o cérebro da operação! Ele serve para pensar e calcular tudo o que você faz. Quando você abre um jogo, é este chip que realiza bilhões de cálculos por segundo para fazer isso acontecer. Curiosidade: O primeiro microprocessador, o Intel 4004 (1971), tinha apenas 2.300 transistores. Hoje, um processador moderno pode ter mais de 10 bilhões de transistores."
+        },
+        {
+          "id": "h_circuit-board",
+          "position": "",
+          "icon": "circuit-board",
+          "label": "Placa Mãe",
+          "labelPosition": "",
+          "action": "dialog",
+          "content": "Esta é a Placa-Mãe, o coração do computador! Ela conecta todos os componentes internos e permite que eles se comuniquem entre si. Sem ela, nada funcionaria! Curiosidade: A primeira placa-mãe foi criada na década de 1980 e era tão grande que ocupava toda a parte inferior do gabinete do computador!"
+        },
+        {
+          "id": "h_memory",
+          "position": "",
+          "icon": "memory",
+          "label": "Memória RAM",
+          "labelPosition": "",
+          "action": "dialog",
+          "content": "Esta é a Memória RAM, o armazenamento temporário do computador! Ela armazena dados que estão sendo usados no momento, como o que você está vendo na tela. Curiosidade: A memória RAM é volátil, ou seja, perde todos os dados quando o computador é desligado!"
+        },
+        {
+          "id": "h_hard-drive",
+          "position": "",
+          "icon": "hard-drive",
+          "label": "Disco Rígido",
+          "labelPosition": "",
+          "action": "dialog",
+          "content": "Este é o Disco Rígido (HD) ou SSD, o armazenamento permanente do computador! Ele guarda todos os seus arquivos, programas e dados mesmo quando o computador está desligado. Curiosidade: Um SSD moderno pode ser até 100 vezes mais rápido que um HD tradicional!"
+        },
+        {
+          "id": "h_sata-cable",
+          "position": "",
+          "icon": "sata-cable",
+          "label": "Cabo SATA",
+          "labelPosition": "",
+          "action": "dialog",
+          "content": "Vês este cabo vermelho achatado? Este é o cabo SATA, que conecta o disco rígido ao computador. Ele permite que os dados sejam transferidos entre o disco e a placa-mãe. Curiosidade: O SATA é um padrão de conexão que substituiu o antigo PATA (IDE) e oferece velocidades de transferência mais altas!"
+        },
+        {
+          "id": "h_power-supply",
+          "position": "",
+          "icon": "power-supply",
+          "label": "Fonte de Alimentação",
+          "labelPosition": "",
+          "action": "dialog",
+          "content": "Esta é a Fonte de Alimentação, que fornece energia elétrica para todos os componentes do computador. Ela converte a corrente alternada da tomada em corrente contínua necessária para os componentes internos. Curiosidade: As fontes de alimentação modernas são projetadas para serem eficientes e seguras, com certificações como 80 Plus Bronze ou superior!"
+        },
+        {
+          "id": "h_power-cable",
+          "position": "",
+          "icon": "power-cable",
+          "label": "Cabos de Energia",
+          "labelPosition": "",
+          "action": "dialog",
+          "content": "Olha para as cores! Estes são os cabos de energia que conectam a fonte de alimentação aos componentes do computador. Eles fornecem a corrente contínua necessária para o funcionamento dos componentes internos. Curiosidade: Os cabos de energia devem ser compatíveis com a fonte de alimentação e os componentes conectados!"
+        },
+        {
+          "id": "h_cooling-fan",
+          "position": "",
+          "icon": "cooling-fan",
+          "label": "Cooler de Refrigeração",
+          "labelPosition": "",
+          "action": "dialog",
+          "content": "Este é o Cooler de Refrigeração, que mantém os componentes do computador em temperatura adequada. Ele remove o calor gerado pelos componentes internos, como a CPU e a GPU. Curiosidade: Os coolers podem ser ativos (com ventiladores) ou passivos (sem ventiladores), dependendo do tipo de refrigeração utilizado!"
+        },
+        {
+          "id": "h_watercooler",
+          "position": "",
+          "icon": "Watercooler",
+          "label": "Watercooler",
+          "labelPosition": "",
+          "action": "dialog",
+          "content": "Este é o Watercooler, um sistema de refrigeração líquida que é mais eficiente que os coolers tradicionais. Ele remove o calor gerado pelos componentes internos, mantendo a temperatura do computador em níveis adequados. Curiosidade: O watercooler é tão eficiente que pode manter a temperatura da CPU muito baixa, mesmo durante tarefas intensas como jogos ou edição de vídeo!"
+        },
+        {
+          "id": "h_pci-express",
+          "position": "",
+          "icon": "pci-express",
+          "label": "Entrada PCI Express",
+          "labelPosition": "",
+          "action": "dialog",
+          "content": "Esta é a Entrada PCI Express, que permite conectar placas de vídeo e outras placas de expansão ao computador. Ela fornece uma interface de alta velocidade para comunicação entre os componentes. Curiosidade: A PCI Express substituiu o antigo slot PCI e oferece maior largura de banda e eficiência!"
+        },
+        {
+          "id": "h_pci-input",
+          "position": "",
+          "icon": "pci-input",
+          "label": "Entrada PCI",
+          "labelPosition": "",
+          "action": "dialog",
+          "content": "Esta é a Entrada PCI, Slots de expansão para acessórios! Ela serve para adicionar funções extras para o computador. Se ele não tiver Wi-Fi ou Bluetooth, por exemplo, você encaixa uma placa aqui para ganhar essa função. Curiosidade: A PCI é um padrão de conexão que permite expandir as capacidades do computador, mas foi amplamente substituída pela PCI Express devido à sua maior velocidade!"
         },
         {
           "id": "h_quiz_cpu",
-          "position": { "yaw": 90, "pitch": 0 },
+          "position": "",
           "icon": "bolt",
-          "label": "Diagnóstico Final",
+          "label": "Diagnóstico de Hardware",
+          "labelPosition": "",
           "action": "quiz",
           "locked_message": "Analise todos os componentes primeiro.",
           "questions": [
             {
-              "text": "Qual peça conecta todas as outras?",
+              "text": "Qual peça funciona como o \"cérebro\" do computador, realizando todos os cálculos?",
               "options": [
-                { "text": "Placa-Mãe", "correct": true },
+                { "text": "Fonte de Alimentação", "correct": false },
+                { "text": "Processador (CPU)", "correct": true },
                 { "text": "Cooler", "correct": false },
-                { "text": "Mouse", "correct": false }
+                { "text": "Gabinete", "correct": false }
               ],
-              "feedback_correct": "Correto! É a avenida principal dos dados.",
-              "feedback_wrong": "Incorreto. Procure pela placa grande onde tudo se encaixa."
+              "feedback_correct": "Exato! A CPU é o centro de processamento e controle do sistema.",
+              "feedback_wrong": "Incorreto! Qual é o componente que 'pensa' e processa as instruções dos programas?"
+            },
+            {
+              "text": "A Placa-Mãe tem qual função principal?",
+              "options": [
+                { "text": "Gerar energia para a casa", "correct": false },
+                { "text": "Conectar todas as peças do computador entre si", "correct": true },
+                { "text": "Guardar fotos permanentemente", "correct": false },
+                { "text": "Esfriar o computador", "correct": false }
+              ],
+              "feedback_correct": "Perfeito! Ela é a base que interliga todos os componentes.",
+              "feedback_wrong": "Incorreto! Pense nela como a 'espinha dorsal' ou a 'plataforma' onde tudo é conectado."
+            },
+            {
+              "text": "A Memória RAM guarda dados temporariamente. O que acontece com ela se desligarmos a energia?",
+              "options": [
+                { "text": "Ela grava tudo no disco", "correct": false },
+                { "text": "Ela apaga tudo o que estava guardado", "correct": true },
+                { "text": "Ela começa a apitar", "correct": false },
+                { "text": "Ela transforma-se num SSD", "correct": false }
+              ],
+              "feedback_correct": "Correto! Por isso ela é chamada de memória 'volátil'.",
+              "feedback_wrong": "Incorreto! A informação nela é como um quadro branco: quando a energia acaba, o que acontece com o que está escrito?"
+            },
+            {
+              "text": "Qual é a diferença principal entre a RAM e o SSD/HD?",
+              "options": [
+                { "text": "A RAM é lenta e o SSD é rápido", "correct": false },
+                { "text": "A RAM é permanente e o SSD é temporário", "correct": false },
+                { "text": "A RAM é temporária e rápida; o SSD é permanente e armazena arquivos", "correct": true },
+                { "text": "Não há diferença", "correct": false }
+              ],
+              "feedback_correct": "Isso mesmo! Uma é a memória de trabalho e a outra é o armazenamento permanente.",
+              "feedback_wrong": "Incorreto! Uma guarda o que você está fazendo AGORA, a outra guarda o que você tem SALVO."
+            },
+            {
+              "text": "Para que serve a Fonte de Alimentação?",
+              "options": [
+                { "text": "Para ligar o monitor", "correct": false },
+                { "text": "Para transformar a energia da tomada na voltagem correta para as peças", "correct": true },
+                { "text": "Para aumentar a velocidade da internet", "correct": false },
+                { "text": "Para guardar energia como uma bateria", "correct": false }
+              ],
+              "feedback_correct": "Correto! Ela converte a corrente alternada em corrente contínua nas tensões adequadas.",
+              "feedback_wrong": "Incorreto! A energia da tomada (127V ou 220V) é forte demais para os componentes. O que reduz essa tensão?"
+            },
+            {
+              "text": "O Processador esquenta muito. Qual peça é vital para evitar que ele queime?",
+              "options": [
+                { "text": "O Cabo Flat", "correct": false },
+                { "text": "O Cooler (Ventoinha)", "correct": true },
+                { "text": "A Placa de Vídeo", "correct": false },
+                { "text": "O Disco Rígido", "correct": false }
+              ],
+              "feedback_correct": "Exato! O cooler dissipa o calor gerado pelo processador.",
+              "feedback_wrong": "Incorreto! Se ele esquenta, qual é o componente responsável por resfriá-lo? (Obs.: geralmente tem hélices)."
+            },
+            {
+              "text": "O que é um Watercooler?",
+              "options": [
+                { "text": "Um tipo de memória à prova d'água", "correct": false },
+                { "text": "Um sistema de refrigeração que usa líquido em vez de apenas ar", "correct": true },
+                { "text": "Um jogo de computador", "correct": false },
+                { "text": "Uma fonte de energia hidrelétrica", "correct": false }
+              ],
+              "feedback_correct": "Isso mesmo! É um sistema de arrefecimento a líquido, mais eficiente em muitos casos.",
+              "feedback_wrong": "Incorreto! O nome já dá uma dica: usa um líquido para transportar o calor, em vez de apenas metal e ventoinha."
+            },
+            {
+              "text": "Qual é a função geral dos cabos coloridos da fonte?",
+              "options": [
+                { "text": "Apenas decoração", "correct": false },
+                { "text": "Levar diferentes voltagens (como 12V e 5V) para componentes diferentes", "correct": true },
+                { "text": "Transmitir dados de internet", "correct": false },
+                { "text": "Segurar as peças no lugar", "correct": false }
+              ],
+              "feedback_correct": "Perfeito! Cada cor (ou padrão) indica uma tensão específica para cada tipo de peça.",
+              "feedback_wrong": "Incorreto! Será que a fonte manda a mesma energia para o processador e para um motor de ventilador?"
+            },
+            {
+              "text": "Se quiseres rodar jogos com gráficos pesados, precisas de uma Placa de Vídeo. Onde ela é encaixada?",
+              "options": [
+                { "text": "No slot PCI Express", "correct": true },
+                { "text": "No soquete do processador", "correct": false },
+                { "text": "Na entrada USB", "correct": false },
+                { "text": "Dentro da Fonte", "correct": false }
+              ],
+              "feedback_correct": "Correto! Esse slot de expansão é o local ideal para placas de vídeo dedicadas.",
+              "feedback_wrong": "Incorreto! Na placa-mãe, existe um slot longo específico para conectar placas de expansão poderosas."
+            },
+            {
+              "text": "Se o teu computador antigo não tem Wi-Fi, onde podes conectar uma placa adaptadora para ter internet sem fio?",
+              "options": [
+                { "text": "No Cooler", "correct": false },
+                { "text": "Na entrada PCI", "correct": true },
+                { "text": "No Cabo de Força", "correct": false },
+                { "text": "No Monitor", "correct": false }
+              ],
+              "feedback_correct": "Isso mesmo! Você usaria um slot de expansão, como o PCI, para adicionar essa funcionalidade.",
+              "feedback_wrong": "Incorreto! Onde você encaixa outras placas, como a de Wi-Fi ou Bluetooth, para adicionar funções ao PC?"
+            },
+            {
+              "text": "O que é o Cabo SATA serve para conectar o HD à Placa-Mãe. Qual a função dele?",
+              "options": [
+                { "text": "Resfriar o sistema", "correct": false },
+                { "text": "Transportar dados em alta velocidade", "correct": true },
+                { "text": "Fornecer energia wireless", "correct": false },
+                { "text": "Segurar o gabinete", "correct": false }
+              ],
+              "feedback_correct": "Correto! É o caminho por onde os dados trafegam entre o HD e a placa-mãe.",
+              "feedback_wrong": "Incorreto! Se o HD é onde os dados ficam guardados, o que esse cabo faz? Leva música, fotos e documentos?"
+            },
+            {
+              "text": "Qual componente é responsável por distribuir energia, dados e comandos para todo o sistema como se fossem estradas?",
+              "options": [
+                { "text": "O Processador", "correct": false },
+                { "text": "O HD", "correct": false },
+                { "text": "A Placa-Mãe", "correct": true },
+                { "text": "A Placa de Vídeo", "correct": false }
+              ],
+              "feedback_correct": "Exato! A Placa-Mãe é o grande centro de conexão, a cidade com todas as suas estradas.",
+              "feedback_wrong": "Incorreto! Qual peça tem os 'caminhos' (trilhas) que ligam o processador à memória e aos outros componentes?"
             }
           ]
         }
