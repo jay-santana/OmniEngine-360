@@ -454,27 +454,37 @@ class UIController {
 
   showQuiz(quizData, onCompleteQuiz) {
     this.els.quizOverlay.style.display = "flex";
-    // GARANTE que o overlay está VISÍVEL e com z-index adequado
     this.els.quizOverlay.style.zIndex = "10000";
 
     const qElement = document.getElementById("quiz-question");
     const optsElement = document.getElementById("quiz-options");
 
-    // Adiciona a classe ao body para controlar z-index
     document.body.classList.add("quiz-active");
 
-    // Garante que o narrador do B.Y.T.E. fique ACIMA do quiz
     if (this.els.narratorArea) {
       this.els.narratorArea.style.zIndex = "10001";
     }
 
+    let poolDePerguntas = [...quizData.questions];
+
+    for (let i = poolDePerguntas.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [poolDePerguntas[i], poolDePerguntas[j]] = [
+        poolDePerguntas[j],
+        poolDePerguntas[i],
+      ];
+    }
+
+    const limite = quizData.questions_count || poolDePerguntas.length;
+    const selectedQuestions = poolDePerguntas.slice(0, limite);
+
     let currentQuestionIndex = 0;
     let mistakesInThisQuiz = 0;
-    const totalQuestions = quizData.questions.length;
+
+    const totalQuestions = selectedQuestions.length;
 
     const renderQuestion = () => {
       if (currentQuestionIndex >= totalQuestions) {
-        // CHAMADA CORRETA - passando mistakesInThisQuiz e totalQuestions
         this.showMissionReport(
           mistakesInThisQuiz,
           totalQuestions,
@@ -483,25 +493,32 @@ class UIController {
         return;
       }
 
-      const q = quizData.questions[currentQuestionIndex];
-      qElement.textContent = `Questão ${currentQuestionIndex + 1}/${quizData.questions.length}: ${q.text}`;
+      const q = selectedQuestions[currentQuestionIndex];
+
+      qElement.textContent = `Questão ${currentQuestionIndex + 1}/${totalQuestions}: ${q.text}`;
       optsElement.innerHTML = "";
 
-      // Renderiza opções
-      q.options.forEach((opt) => {
+      const shuffledOptions = [...q.options];
+      for (let i = shuffledOptions.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shuffledOptions[i], shuffledOptions[j]] = [
+          shuffledOptions[j],
+          shuffledOptions[i],
+        ];
+      }
+
+      shuffledOptions.forEach((opt) => {
         const btn = document.createElement("button");
         btn.className = "quiz-opt";
         btn.textContent = opt.text;
 
         btn.onclick = () => {
-          // Desabilita botões para evitar clique duplo
           const allBtns = optsElement.querySelectorAll("button");
           allBtns.forEach((b) => (b.disabled = true));
 
           if (opt.correct) {
             btn.classList.add("correct");
 
-            // FEEDBACK VIA NARRADOR (B.Y.T.E.)
             this.showNarrator(
               q.feedback_correct || this.config.gameplay.default_quiz_correct,
               () => {
@@ -512,9 +529,8 @@ class UIController {
             );
           } else {
             btn.classList.add("wrong");
-            mistakesInThisQuiz++; // Registra erro
+            mistakesInThisQuiz++;
 
-            // FEEDBACK VIA NARRADOR
             this.showNarrator(
               q.feedback_wrong || this.config.gameplay.default_quiz_wrong,
               () => {
