@@ -122,7 +122,7 @@ class AudioController {
     if (voice) utterance.voice = voice;
 
     if (character === "villain") {
-      utterance.pitch = 0.6;
+      utterance.pitch = 0.7;
       utterance.rate = 1.0;
     } else {
       utterance.pitch = 1.2;
