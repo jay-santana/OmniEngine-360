@@ -100,7 +100,7 @@
           "label": "Teclado",
           "labelPosition": "right",
           "action": "dialog",
-          "content": "Este é o Teclado! Um Periférico de Entrada essencial para enviar comandos de texto e atalhos para o processador. Curiosidade: Sua origem vem das máquinas de escrever de 1868 (EUA), criadas por Christopher Sholes."
+          "content": "Este é o Teclado! Um Periférico de Entrada que serve para digitar comandos e texto no computador. Ele é essencial para a interação com o sistema. Curiosidade: O primeiro teclado de computador foi criado em 1964 (EUA) por Douglas Engelbart, e era baseado no layout das máquinas de escrever da época!"
         },
         {
           "id": "h_mouse",
@@ -109,7 +109,7 @@
           "label": "Mouse",
           "labelPosition": "right",
           "action": "dialog",
-          "content": "Este é o Mouse! Um Periférico de Entrada e serve para controlar o cursor na tela com o movimento da tua mão. Criado em 1964 (EUA) por Douglas Engelbart. Curiosidade: O primeiro modelo da história não era de plástico, mas sim uma caixa de madeira com duas rodinhas de metal por baixo!"
+          "content": "Este é o Mouse! Um Periférico de Entrada que serve para apontar, clicar e interagir com os elementos na tela. Ele é essencial para a navegação gráfica do sistema. Curiosidade: O mouse foi inventado por Douglas Engelbart em 1963 (EUA) e era feito de madeira, com apenas um botão!"
         },
         {
           "id": "h_monitor",
@@ -118,7 +118,7 @@
           "label": "Monitor",
           "labelPosition": "right",
           "action": "dialog",
-          "content": "Este é o Monitor! Um clássico Periférico de Saída. Ele serve para mostrar visualmente o resultado do processamento de dados, transformando os dados em luz e imagem. Curiosidade: Um pixel é o menor ponto de luz na tela. Sabias que um monitor Full HD tem mais de 2 milhões de pixels piscando ao mesmo tempo para formar a imagem que vês agora?"
+          "content": "Este é o Monitor! Um Periférico de Saída que exibe informações visuais do computador. Ele é essencial para interagir com o sistema e ver os resultados do processamento. Curiosidade: O primeiro monitor de computador foi criado em 1951 (EUA) e era tão grande quanto um armário."
         },
         {
           "id": "h_sound-box",
@@ -127,7 +127,7 @@
           "label": "Caixa de Som",
           "labelPosition": "right",
           "action": "dialog",
-          "content": "Esta é a Caixa de Som! Um Periférico de Saída de áudio. Serve para o computador emitir sons, músicas e alertas de sistema para tu ouvires. Curiosidade: Os primeiros computadores só faziam 'bip' e 'bop'. Hoje, conseguimos som de cinema graças à evolução das placas de som!"
+          "content": "Esta é a Caixa de Som! Um Periférico de Saída que reproduz o áudio do computador. Ela é essencial para ouvir música, efeitos sonoros e comunicação por voz. Curiosidade: As primeiras caixas de som de computador eram tão grandes que ocupavam uma sala inteira!"
         },
         {
           "id": "h_headset",
@@ -136,7 +136,7 @@
           "label": "Headset",
           "labelPosition": "right",
           "action": "dialog",
-          "content": "Este é o Headset! Um Periférico Híbrido! Ou seja, de entrada e saída. Ele serve para ouvir e falar ao mesmo tempo! Os fones são Saída e o microfone é Entrada. Curiosidade: Foi criado originalmente para telefonistas e pilotos de avião ficarem com as mãos livres, antes de virar moda nos jogos."
+          "content": "Este é o Headset! Um Periférico Misto que combina fones de ouvido (saída) e microfone (entrada). Ele é essencial para comunicação por voz, jogos online e videoconferências. Curiosidade: O primeiro headset foi criado em 1910 (EUA) para operadores de telefone, e era tão pesado que precisava ser apoiado por um suporte!"
         },
         {
           "id": "h_printer",
@@ -554,9 +554,10 @@
         },
         {
           "id": "h_quiz_cpu",
-          "position": { "yaw": 90, "pitch": 0 },
+          "position": "",
           "icon": "bolt",
           "label": "Diagnóstico de Hardware",
+          "labelPosition": "",
           "action": "quiz",
           "locked_message": "Analise todos os componentes primeiro.",
           "questions": [
