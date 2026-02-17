@@ -299,6 +299,7 @@
           "label": "Protocolo de Verificação",
           "action": "quiz",
           "locked_message": "Você precisa encontrar todos os dados antes de iniciar o teste!",
+          "questions_count": 6,
           "questions": [
             {
               "text": "O Teclado e o Mouse foram criados para enviar ordens ao PC. Que tipo de periféricos são?",
@@ -327,7 +328,10 @@
               "options": [
                 { "text": "Apenas Entrada", "correct": false },
                 { "text": "Apenas Saída", "correct": false },
-                { "text": "Periférico Misto (Entrada e Saída)", "correct": true },
+                {
+                  "text": "Periférico Misto (Entrada e Saída)",
+                  "correct": true
+                },
                 { "text": "Dispositivo de Armazenamento", "correct": false }
               ],
               "feedback_correct": "Perfeito! Ele combina as duas funções, por isso é misto.",
@@ -358,7 +362,10 @@
             {
               "text": "Grace Hopper (EUA) inventou o \"Compilador\". Para que serviu essa invenção?",
               "options": [
-                { "text": "Para permitir programar usando inglês em vez de códigos numéricos", "correct": true },
+                {
+                  "text": "Para permitir programar usando inglês em vez de códigos numéricos",
+                  "correct": true
+                },
                 { "text": "Para resfriar o computador", "correct": false },
                 { "text": "Para criar jogos 3D", "correct": false },
                 { "text": "Para ligar o computador", "correct": false }
@@ -380,7 +387,10 @@
             {
               "text": "Tim Berners-Lee (1989) queria facilitar o compartilhar informações. O que ele criou?",
               "options": [
-                { "text": "A World Wide Web (WWW), sites e links", "correct": true },
+                {
+                  "text": "A World Wide Web (WWW), sites e links",
+                  "correct": true
+                },
                 { "text": "O chip de processador", "correct": false },
                 { "text": "O Mouse", "correct": false },
                 { "text": "O Pen Drive", "correct": false }
@@ -392,7 +402,10 @@
               "text": "Katherine Johnson (NASA) foi fundamental nos anos 60. Qual foi a sua função?",
               "options": [
                 { "text": "Criar o Linux", "correct": false },
-                { "text": "Calcular à mão as trajetórias para levar o homem ao espaço", "correct": true },
+                {
+                  "text": "Calcular à mão as trajetórias para levar o homem ao espaço",
+                  "correct": true
+                },
                 { "text": "Desenhar o teclado", "correct": false },
                 { "text": "Inventar a câmera digital", "correct": false }
               ],
@@ -414,7 +427,10 @@
               "text": "Alan Turing (Inglaterra) é famoso por criar a \"Máquina Universal\" e também por:",
               "options": [
                 { "text": "Inventar o Facebook", "correct": false },
-                { "text": "Quebrar códigos secretos nazistas na 2ª Guerra Mundial", "correct": true },
+                {
+                  "text": "Quebrar códigos secretos nazistas na 2ª Guerra Mundial",
+                  "correct": true
+                },
                 { "text": "Criar o Windows", "correct": false },
                 { "text": "Inventar a impressora", "correct": false }
               ],
@@ -456,111 +472,112 @@
       "hotspots": [
         {
           "id": "h_cpu",
-          "position": "",
+          "position": "-170,-20 ",
           "icon": "microchip",
           "label": "Processador",
-          "labelPosition": "",
+          "labelPosition": "right",
           "action": "dialog",
           "content": "Este é o Processador, o cérebro da operação! Ele serve para pensar e calcular tudo o que você faz. Quando você abre um jogo, é este chip que realiza bilhões de cálculos por segundo para fazer isso acontecer. Curiosidade: O primeiro microprocessador, o Intel 4004 (1971), tinha apenas 2.300 transistores. Hoje, um processador moderno pode ter mais de 10 bilhões de transistores."
         },
         {
           "id": "h_circuit-board",
-          "position": "",
-          "icon": "circuit-board",
+          "position": "-140,-40",
+          "icon": "robot",
           "label": "Placa Mãe",
-          "labelPosition": "",
+          "labelPosition": "right",
           "action": "dialog",
           "content": "Esta é a Placa-Mãe, o coração do computador! Ela conecta todos os componentes internos e permite que eles se comuniquem entre si. Sem ela, nada funcionaria! Curiosidade: A primeira placa-mãe foi criada na década de 1980 e era tão grande que ocupava toda a parte inferior do gabinete do computador!"
         },
         {
           "id": "h_memory",
-          "position": "",
+          "position": "-85,30",
           "icon": "memory",
           "label": "Memória RAM",
-          "labelPosition": "",
+          "labelPosition": "right",
           "action": "dialog",
           "content": "Esta é a Memória RAM, o armazenamento temporário do computador! Ela armazena dados que estão sendo usados no momento, como o que você está vendo na tela. Curiosidade: A memória RAM é volátil, ou seja, perde todos os dados quando o computador é desligado!"
         },
         {
           "id": "h_hard-drive",
-          "position": "",
-          "icon": "hard-drive",
+          "position": "-10,30",
+          "icon": "fa-regular fa-hard-drive",
           "label": "Disco Rígido",
-          "labelPosition": "",
+          "labelPosition": "right",
           "action": "dialog",
           "content": "Este é o Disco Rígido (HD) ou SSD, o armazenamento permanente do computador! Ele guarda todos os seus arquivos, programas e dados mesmo quando o computador está desligado. Curiosidade: Um SSD moderno pode ser até 100 vezes mais rápido que um HD tradicional!"
         },
         {
           "id": "h_sata-cable",
-          "position": "",
-          "icon": "sata-cable",
+          "position": "-5,-30",
+          "icon": "fa-solid fa-hard-drive",
           "label": "Cabo SATA",
-          "labelPosition": "",
+          "labelPosition": "right",
           "action": "dialog",
           "content": "Vês este cabo vermelho achatado? Este é o cabo SATA, que conecta o disco rígido ao computador. Ele permite que os dados sejam transferidos entre o disco e a placa-mãe. Curiosidade: O SATA é um padrão de conexão que substituiu o antigo PATA (IDE) e oferece velocidades de transferência mais altas!"
         },
         {
           "id": "h_power-supply",
-          "position": "",
-          "icon": "power-supply",
+          "position": "-10,70",
+          "icon": "charging-station",
           "label": "Fonte de Alimentação",
-          "labelPosition": "",
+          "labelPosition": "right",
           "action": "dialog",
           "content": "Esta é a Fonte de Alimentação, que fornece energia elétrica para todos os componentes do computador. Ela converte a corrente alternada da tomada em corrente contínua necessária para os componentes internos. Curiosidade: As fontes de alimentação modernas são projetadas para serem eficientes e seguras, com certificações como 80 Plus Bronze ou superior!"
         },
         {
           "id": "h_power-cable",
-          "position": "",
-          "icon": "power-cable",
+          "position": "80,-20",
+          "icon": "plug-circle-bolt",
           "label": "Cabos de Energia",
-          "labelPosition": "",
+          "labelPosition": "right",
           "action": "dialog",
           "content": "Olha para as cores! Estes são os cabos de energia que conectam a fonte de alimentação aos componentes do computador. Eles fornecem a corrente contínua necessária para o funcionamento dos componentes internos. Curiosidade: Os cabos de energia devem ser compatíveis com a fonte de alimentação e os componentes conectados!"
         },
         {
           "id": "h_cooling-fan",
-          "position": "",
-          "icon": "cooling-fan",
+          "position": "130,20",
+          "icon": "life-ring",
           "label": "Cooler de Refrigeração",
-          "labelPosition": "",
+          "labelPosition": "right",
           "action": "dialog",
           "content": "Este é o Cooler de Refrigeração, que mantém os componentes do computador em temperatura adequada. Ele remove o calor gerado pelos componentes internos, como a CPU e a GPU. Curiosidade: Os coolers podem ser ativos (com ventiladores) ou passivos (sem ventiladores), dependendo do tipo de refrigeração utilizado!"
         },
         {
           "id": "h_watercooler",
-          "position": "",
-          "icon": "Watercooler",
+          "position": "200,50",
+          "icon": "droplet",
           "label": "Watercooler",
-          "labelPosition": "",
+          "labelPosition": "right",
           "action": "dialog",
           "content": "Este é o Watercooler, um sistema de refrigeração líquida que é mais eficiente que os coolers tradicionais. Ele remove o calor gerado pelos componentes internos, mantendo a temperatura do computador em níveis adequados. Curiosidade: O watercooler é tão eficiente que pode manter a temperatura da CPU muito baixa, mesmo durante tarefas intensas como jogos ou edição de vídeo!"
         },
         {
           "id": "h_pci-express",
-          "position": "",
-          "icon": "pci-express",
+          "position": "150,-20",
+          "icon": "traffic-light",
           "label": "Entrada PCI Express",
-          "labelPosition": "",
+          "labelPosition": "right",
           "action": "dialog",
           "content": "Esta é a Entrada PCI Express, que permite conectar placas de vídeo e outras placas de expansão ao computador. Ela fornece uma interface de alta velocidade para comunicação entre os componentes. Curiosidade: A PCI Express substituiu o antigo slot PCI e oferece maior largura de banda e eficiência!"
         },
         {
           "id": "h_pci-input",
-          "position": "",
-          "icon": "pci-input",
+          "position": "110,-20",
+          "icon": "traffic-light",
           "label": "Entrada PCI",
-          "labelPosition": "",
+          "labelPosition": "right",
           "action": "dialog",
           "content": "Esta é a Entrada PCI, Slots de expansão para acessórios! Ela serve para adicionar funções extras para o computador. Se ele não tiver Wi-Fi ou Bluetooth, por exemplo, você encaixa uma placa aqui para ganhar essa função. Curiosidade: A PCI é um padrão de conexão que permite expandir as capacidades do computador, mas foi amplamente substituída pela PCI Express devido à sua maior velocidade!"
         },
         {
           "id": "h_quiz_cpu",
-          "position": "",
+          "position": "90,30",
           "icon": "bolt",
           "label": "Diagnóstico de Hardware",
           "labelPosition": "",
           "action": "quiz",
           "locked_message": "Analise todos os componentes primeiro.",
+          "questions_count": 6,
           "questions": [
             {
               "text": "Qual peça funciona como o \"cérebro\" do computador, realizando todos os cálculos?",
@@ -577,7 +594,10 @@
               "text": "A Placa-Mãe tem qual função principal?",
               "options": [
                 { "text": "Gerar energia para a casa", "correct": false },
-                { "text": "Conectar todas as peças do computador entre si", "correct": true },
+                {
+                  "text": "Conectar todas as peças do computador entre si",
+                  "correct": true
+                },
                 { "text": "Guardar fotos permanentemente", "correct": false },
                 { "text": "Esfriar o computador", "correct": false }
               ],
@@ -588,7 +608,10 @@
               "text": "A Memória RAM guarda dados temporariamente. O que acontece com ela se desligarmos a energia?",
               "options": [
                 { "text": "Ela grava tudo no disco", "correct": false },
-                { "text": "Ela apaga tudo o que estava guardado", "correct": true },
+                {
+                  "text": "Ela apaga tudo o que estava guardado",
+                  "correct": true
+                },
                 { "text": "Ela começa a apitar", "correct": false },
                 { "text": "Ela transforma-se num SSD", "correct": false }
               ],
@@ -599,8 +622,14 @@
               "text": "Qual é a diferença principal entre a RAM e o SSD/HD?",
               "options": [
                 { "text": "A RAM é lenta e o SSD é rápido", "correct": false },
-                { "text": "A RAM é permanente e o SSD é temporário", "correct": false },
-                { "text": "A RAM é temporária e rápida; o SSD é permanente e armazena arquivos", "correct": true },
+                {
+                  "text": "A RAM é permanente e o SSD é temporário",
+                  "correct": false
+                },
+                {
+                  "text": "A RAM é temporária e rápida; o SSD é permanente e armazena arquivos",
+                  "correct": true
+                },
                 { "text": "Não há diferença", "correct": false }
               ],
               "feedback_correct": "Isso mesmo! Uma é a memória de trabalho e a outra é o armazenamento permanente.",
@@ -610,9 +639,18 @@
               "text": "Para que serve a Fonte de Alimentação?",
               "options": [
                 { "text": "Para ligar o monitor", "correct": false },
-                { "text": "Para transformar a energia da tomada na voltagem correta para as peças", "correct": true },
-                { "text": "Para aumentar a velocidade da internet", "correct": false },
-                { "text": "Para guardar energia como uma bateria", "correct": false }
+                {
+                  "text": "Para transformar a energia da tomada na voltagem correta para as peças",
+                  "correct": true
+                },
+                {
+                  "text": "Para aumentar a velocidade da internet",
+                  "correct": false
+                },
+                {
+                  "text": "Para guardar energia como uma bateria",
+                  "correct": false
+                }
               ],
               "feedback_correct": "Correto! Ela converte a corrente alternada em corrente contínua nas tensões adequadas.",
               "feedback_wrong": "Incorreto! A energia da tomada (127V ou 220V) é forte demais para os componentes. O que reduz essa tensão?"
@@ -631,10 +669,19 @@
             {
               "text": "O que é um Watercooler?",
               "options": [
-                { "text": "Um tipo de memória à prova d'água", "correct": false },
-                { "text": "Um sistema de refrigeração que usa líquido em vez de apenas ar", "correct": true },
+                {
+                  "text": "Um tipo de memória à prova d'água",
+                  "correct": false
+                },
+                {
+                  "text": "Um sistema de refrigeração que usa líquido em vez de apenas ar",
+                  "correct": true
+                },
                 { "text": "Um jogo de computador", "correct": false },
-                { "text": "Uma fonte de energia hidrelétrica", "correct": false }
+                {
+                  "text": "Uma fonte de energia hidrelétrica",
+                  "correct": false
+                }
               ],
               "feedback_correct": "Isso mesmo! É um sistema de arrefecimento a líquido, mais eficiente em muitos casos.",
               "feedback_wrong": "Incorreto! O nome já dá uma dica: usa um líquido para transportar o calor, em vez de apenas metal e ventoinha."
@@ -643,7 +690,10 @@
               "text": "Qual é a função geral dos cabos coloridos da fonte?",
               "options": [
                 { "text": "Apenas decoração", "correct": false },
-                { "text": "Levar diferentes voltagens (como 12V e 5V) para componentes diferentes", "correct": true },
+                {
+                  "text": "Levar diferentes voltagens (como 12V e 5V) para componentes diferentes",
+                  "correct": true
+                },
                 { "text": "Transmitir dados de internet", "correct": false },
                 { "text": "Segurar as peças no lugar", "correct": false }
               ],
@@ -676,7 +726,10 @@
               "text": "O que é o Cabo SATA serve para conectar o HD à Placa-Mãe. Qual a função dele?",
               "options": [
                 { "text": "Resfriar o sistema", "correct": false },
-                { "text": "Transportar dados em alta velocidade", "correct": true },
+                {
+                  "text": "Transportar dados em alta velocidade",
+                  "correct": true
+                },
                 { "text": "Fornecer energia wireless", "correct": false },
                 { "text": "Segurar o gabinete", "correct": false }
               ],
