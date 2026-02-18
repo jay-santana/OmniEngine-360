@@ -112,7 +112,6 @@ class UIController {
         this.game.audio.setGlobalVolume(vol);
         if (vol == 0) {
           this.els.btnAudio.innerHTML = '<i class="fas fa-volume-mute"></i>';
-          this.stopTypingAnimation();
         } else {
           this.els.btnAudio.innerHTML = '<i class="fas fa-volume-up"></i>';
         }
@@ -121,11 +120,9 @@ class UIController {
 
     if (this.els.btnAudio) {
       this.els.btnAudio.onclick = () => {
-        if (this.game.audio.bgm.volume > 0) {
-          this.game.audio.lastVol = this.game.audio.bgm.volume;
+        if (this.game.audio.globalVolume > 0) {
+          this.game.audio.lastVol = this.game.audio.globalVolume;
           this.game.audio.setGlobalVolume(0);
-          this.game.audio.stopSpeech();
-          this.stopTypingAnimation();
           this.els.volumeSlider.value = 0;
           this.els.btnAudio.innerHTML = '<i class="fas fa-volume-mute"></i>';
         } else {
@@ -349,7 +346,7 @@ class UIController {
     this.typingInterval = setInterval(() => {
       this.els.narratorText.textContent += text.charAt(i);
 
-      if (i % 2 === 0) {
+      if (i % 2 === 0 && this.game.audio.globalVolume > 0) {
         const tone = speaker === "villain" ? "low" : "high";
         this.game.audio.playTypingBeep(tone);
       }
