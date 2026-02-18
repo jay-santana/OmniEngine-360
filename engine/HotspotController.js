@@ -14,38 +14,36 @@ class HotspotController {
     return posInput; // Já é objeto
   }
 
-  loadHotspots(sceneData, onClick) {
+  loadHotspots(sceneData, onClick, gameState) {
     this.clear();
     if (!sceneData.hotspots) return;
 
     sceneData.hotspots.forEach((h) => {
-      // Converte a posição corretamente
       const positionData = this.parsePosition(h.position);
-
-      // 1. Cria o container (ponto zero)
       const el = document.createElement("div");
-
-      // Adiciona classes. Se não tiver labelPosition, usa 'top' como fallback
-      // Importante: Adiciona as classes EXATAS que o CSS espera
       const posClass = h.labelPosition || "top";
       el.className = `hotspot ${posClass}`;
 
-      // 2. Cria o Botão (Círculo)
+      el.setAttribute('data-hotspot-id', h.id);
+
+      if (h.action !== "quiz" && gameState?.visitedHotspots?.has(h.id)) {
+        el.classList.add('visited');
+      }
+
+      if (h.action === "quiz" && gameState?.completedModules?.has(sceneData.id)) {
+        el.classList.add('quiz-completed');
+      }
+
       const btn = document.createElement("div");
       btn.className = "hotspot-button";
-      // Usa o ícone do JSON ou um padrão
       const iconName = h.icon || "question-circle";
       btn.innerHTML = `<i class="fas fa-${iconName}"></i>`;
       el.appendChild(btn);
 
-      // 3. Cria o Rótulo (Label), se houver texto
-      // Verifica 'labelText' (padrão antigo) OU 'label' (novo padrão)
-      const textContent = h.labelText || h.label;
-
-      if (textContent) {
+      if (h.label) {
         const label = document.createElement("div");
         label.className = "hotspot-label";
-        label.innerHTML = textContent; // innerHTML permite tags como <b>
+        label.innerHTML = h.label;
         el.appendChild(label);
       }
 
@@ -56,8 +54,6 @@ class HotspotController {
       };
 
       this.container.appendChild(el);
-
-      // Adiciona ao ThreeView usando os dados convertidos
       this.threeView.addHotspotToTracking(el, positionData);
       this.hotspots.push(el);
     });

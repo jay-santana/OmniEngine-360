@@ -411,8 +411,8 @@ class UIController {
       const hotspotButton = icon.closest(".hotspot-button");
       if (hotspotButton) {
         hotspotButton.style.animation = "pulseQuiz 1.5s infinite";
-        hotspotButton.style.boxShadow = "0 0 30px var(--primary-color)";
-        hotspotButton.style.borderColor = "var(--primary-color)";
+        // hotspotButton.style.boxShadow = "0 0 30px var(--primary-color)";
+        // hotspotButton.style.borderColor = "var(--primary-color)";
       }
     });
 
@@ -660,6 +660,11 @@ class UIController {
       }
 
       this.els.quizOverlay.style.display = "none";
+
+      const quizHotspot = document.querySelector('.hotspot .fa-clipboard-check, .hotspot .fa-bolt');
+      if (quizHotspot) {
+        quizHotspot.closest('.hotspot').classList.add('quiz-completed');
+      }
       onCloseReport(true);
     };
 

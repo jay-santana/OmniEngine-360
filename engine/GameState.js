@@ -12,7 +12,6 @@ class GameState {
     this.completedModules = new Set();
   }
 
-  // --- NOVO MÉTODO ---
   completeModule(sceneId) {
     this.completedModules.add(sceneId);
     
@@ -22,12 +21,11 @@ class GameState {
     return this.completedModules.size === totalModules;
   }
 
-  // --- ATUALIZADO: RESET COMPLETO COM PONTUAÇÃO ---
+  // --- RESET COMPLETO COM PONTUAÇÃO ---
   resetScene(sceneId, deductQuizPoints = false) {
-    console.log(`🧹 Faxina iniciada na cena: ${sceneId}`);
-
     // 1. Remove evento do vilão
     this.eventsTriggered.delete(sceneId);
+    this.completedModules.delete(sceneId);
 
     // 2. Limpa hotspots visitados e SUBTRAI os pontos deles
     const sceneConfig = this.config.scenes.find((s) => s.id === sceneId);
@@ -63,8 +61,6 @@ class GameState {
 
     // 5. Atualiza a tela imediatamente (Zera o placar visual)
     this.notifyTracker();
-
-    console.log("✨ Dados e Pontuação da cena zerados.");
   }
 
   reset() {
@@ -91,6 +87,11 @@ class GameState {
     if (!this.visitedHotspots.has(hotspotId)) {
       this.visitedHotspots.add(hotspotId);
       this.score += this.config.gameplay.points_per_hotspot;
+
+      const hotspotElement = document.querySelector(`[data-hotspot-id="${hotspotId}"]`);
+        if (hotspotElement) {
+          hotspotElement.classList.add('visited');
+        }
       this.notifyTracker();
       return true;
     }

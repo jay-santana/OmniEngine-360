@@ -547,6 +547,7 @@ class GameEngine {
 
     this.hotspots.loadHotspots(scene, (hotspot) =>
       this.handleHotspotClick(hotspot, scene),
+      this.state
     );
 
     this.updateUI();
