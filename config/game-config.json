@@ -236,7 +236,7 @@
           "label": "Hedy Lamarr",
           "labelPosition": "top",
           "action": "dialog",
-          "content": "Esta é a Hedy Lamarr (EUA, 1942). Ela foi uma atriz e inventora que desenvolveu uma técnica de comunicação que serviu como base para os sistemas de comunicação sem fio modernos, como o Wi-Fi e o Bluetooth. Curiosidade: Ela também foi a primeira mulher a obter patentes nos EUA por invenções técnicas!"
+          "content": "Esta é a Hedy Lamarr (EUA, 1942). Ela foi uma atriz e inventora que desenvolveu uma técnica de comunicação, denominada \"Salto de Frequência\", que serviu como base para os sistemas de comunicação sem fio modernos, como o Wi-Fi e o Bluetooth. Curiosidade: Ela também foi a primeira mulher a obter patentes nos EUA por invenções técnicas!"
         },
         {
           "id": "h_perlman",
@@ -594,10 +594,7 @@
               "text": "A Placa-Mãe tem qual função principal?",
               "options": [
                 { "text": "Gerar energia para a casa", "correct": false },
-                {
-                  "text": "Conectar todas as peças do computador entre si",
-                  "correct": true
-                },
+                { "text": "Conectar todas as peças do computador entre si", "correct": true },
                 { "text": "Guardar fotos permanentemente", "correct": false },
                 { "text": "Esfriar o computador", "correct": false }
               ],
@@ -608,10 +605,7 @@
               "text": "A Memória RAM guarda dados temporariamente. O que acontece com ela se desligarmos a energia?",
               "options": [
                 { "text": "Ela grava tudo no disco", "correct": false },
-                {
-                  "text": "Ela apaga tudo o que estava guardado",
-                  "correct": true
-                },
+                { "text": "Ela apaga tudo o que estava guardado", "correct": true },
                 { "text": "Ela começa a apitar", "correct": false },
                 { "text": "Ela transforma-se num SSD", "correct": false }
               ],
@@ -622,14 +616,8 @@
               "text": "Qual é a diferença principal entre a RAM e o SSD/HD?",
               "options": [
                 { "text": "A RAM é lenta e o SSD é rápido", "correct": false },
-                {
-                  "text": "A RAM é permanente e o SSD é temporário",
-                  "correct": false
-                },
-                {
-                  "text": "A RAM é temporária e rápida; o SSD é permanente e armazena arquivos",
-                  "correct": true
-                },
+                { "text": "A RAM é permanente e o SSD é temporário", "correct": false },
+                { "text": "A RAM é temporária e rápida; o SSD é permanente e armazena arquivos", "correct": true},
                 { "text": "Não há diferença", "correct": false }
               ],
               "feedback_correct": "Isso mesmo! Uma é a memória de trabalho e a outra é o armazenamento permanente.",
@@ -639,18 +627,9 @@
               "text": "Para que serve a Fonte de Alimentação?",
               "options": [
                 { "text": "Para ligar o monitor", "correct": false },
-                {
-                  "text": "Para transformar a energia da tomada na voltagem correta para as peças",
-                  "correct": true
-                },
-                {
-                  "text": "Para aumentar a velocidade da internet",
-                  "correct": false
-                },
-                {
-                  "text": "Para guardar energia como uma bateria",
-                  "correct": false
-                }
+                { "text": "Para transformar a energia da tomada na voltagem correta para as peças", "correct": true },
+                { "text": "Para aumentar a velocidade da internet", "correct": false },
+                { "text": "Para guardar energia como uma bateria", "correct": false }
               ],
               "feedback_correct": "Correto! Ela converte a corrente alternada em corrente contínua nas tensões adequadas.",
               "feedback_wrong": "Incorreto! A energia da tomada (127V ou 220V) é forte demais para os componentes. O que reduz essa tensão?"
@@ -669,31 +648,19 @@
             {
               "text": "O que é um Watercooler?",
               "options": [
-                {
-                  "text": "Um tipo de memória à prova d'água",
-                  "correct": false
-                },
-                {
-                  "text": "Um sistema de refrigeração que usa líquido em vez de apenas ar",
-                  "correct": true
-                },
+                { "text": "Um tipo de memória à prova d'água", "correct": false },
+                { "text": "Um sistema de refrigeração que usa líquido em vez de apenas ar", "correct": true },
                 { "text": "Um jogo de computador", "correct": false },
-                {
-                  "text": "Uma fonte de energia hidrelétrica",
-                  "correct": false
-                }
+                { "text": "Uma fonte de energia hidrelétrica", "correct": false }
               ],
               "feedback_correct": "Isso mesmo! É um sistema de arrefecimento a líquido, mais eficiente em muitos casos.",
               "feedback_wrong": "Incorreto! O nome já dá uma dica: usa um líquido para transportar o calor, em vez de apenas metal e ventoinha."
             },
             {
-              "text": "Qual é a função geral dos cabos coloridos da fonte?",
+              "text": "Qual é a função geral dos Cabos de Energia?",
               "options": [
                 { "text": "Apenas decoração", "correct": false },
-                {
-                  "text": "Levar diferentes voltagens (como 12V e 5V) para componentes diferentes",
-                  "correct": true
-                },
+                { "text": "Fornecer a corrente contínua necessária para o funcionamento dos componentes", "correct": true },
                 { "text": "Transmitir dados de internet", "correct": false },
                 { "text": "Segurar as peças no lugar", "correct": false }
               ],
@@ -726,10 +693,7 @@
               "text": "O que é o Cabo SATA serve para conectar o HD à Placa-Mãe. Qual a função dele?",
               "options": [
                 { "text": "Resfriar o sistema", "correct": false },
-                {
-                  "text": "Transportar dados em alta velocidade",
-                  "correct": true
-                },
+                { "text": "Transportar dados em alta velocidade", "correct": true },
                 { "text": "Fornecer energia wireless", "correct": false },
                 { "text": "Segurar o gabinete", "correct": false }
               ],
