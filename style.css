@@ -397,8 +397,8 @@ body.quiz-active #mission-tracker {
 
 .hotspot.visited .hotspot-button {
   border-color: var(--primary-color) !important;
-  background: rgba(0, 255, 0, 0.2);
-  box-shadow: 0 0 40px var(--primary-color);
+  background: rgba(30, 133, 30, 0.418);
+  box-shadow: 0 0 20px #00e400;
 }
 
 .hotspot:hover .hotspot-button {
