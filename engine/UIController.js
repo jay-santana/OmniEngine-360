@@ -458,7 +458,7 @@ class UIController {
       style.textContent = `
         @keyframes pulseQuiz {
           0% { transform: translate(-50%, -50%) scale(1); }
-          50% { transform: translate(-50%, -50%) scale(1.2); }
+          50% { transform: translate(-50%, -50%) scale(1.08); }
           100% { transform: translate(-50%, -50%) scale(1); }
         }
       `;
@@ -474,10 +474,6 @@ class UIController {
     const optsElement = document.getElementById("quiz-options");
 
     document.body.classList.add("quiz-active");
-
-    if (this.els.narratorArea) {
-      this.els.narratorArea.style.zIndex = "10001";
-    }
 
     let poolDePerguntas = [...quizData.questions];
 
@@ -509,7 +505,7 @@ class UIController {
 
       const q = selectedQuestions[currentQuestionIndex];
 
-      qElement.textContent = `Questão ${currentQuestionIndex + 1}/${totalQuestions}: ${q.text}`;
+      qElement.textContent = `<span style="color: var(--accent-color);">Questão ${currentQuestionIndex + 1}/${totalQuestions}:</span> ${q.text}`;
       optsElement.innerHTML = "";
 
       const shuffledOptions = [...q.options];
@@ -599,6 +595,8 @@ class UIController {
         border-radius: 10px;
         border: 1px solid var(--primary-color);
     `;
+
+    container.classList.add("mission-report-container");
 
     const statsGrid = document.createElement("div");
     statsGrid.style.cssText = `
@@ -690,10 +688,6 @@ class UIController {
 
     closeBtn.onclick = () => {
       document.body.classList.remove("quiz-active");
-
-      if (this.els.narratorArea) {
-        this.els.narratorArea.style.zIndex = "400";
-      }
 
       this.els.quizOverlay.style.display = "none";
 

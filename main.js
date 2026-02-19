@@ -231,11 +231,6 @@ class GameEngine {
     // Remove a classe quiz-active
     document.body.classList.remove("quiz-active");
 
-    // Restaura z-index do narrador
-    if (this.ui && this.ui.els.narratorArea) {
-      this.ui.els.narratorArea.style.zIndex = "400";
-    }
-
     // 1. Para TODOS os áudios e FALAS
     if (this.audio) {
       this.audio.stopBGM();

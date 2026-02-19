@@ -32,11 +32,11 @@
   --z-villain: 100;
   --z-ui: 50;
   --z-mission-tracker: 51;
-  --z-narrator: 10002;
   --z-modal: 10000;
   --z-tutorial: 10001;
   --z-boot: 20000;
-  --z-home-button: 2147483647;
+  --z-home-button: 20001;
+  --z-narrator: 20002;
 }
 
 /* ===== RESET E BASE ===== */
@@ -119,6 +119,10 @@ body {
 
 .screen.active {
   pointer-events: auto;
+}
+
+#game-ui {
+  z-index: 1000 !important;
 }
 
 #game-ui.active {
@@ -391,20 +395,19 @@ body.quiz-active #mission-tracker {
   box-shadow: 0 0 15px var(--error-color);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
-  transition: all 0.3s ease;
+  transition: all 0.3s ease-out, box-shadow 0.3s ease-out;
 }
 
 .hotspot.visited .hotspot-button {
   border-color: var(--primary-color) !important;
   background: rgba(0, 255, 0, 0.2);
-  box-shadow: 0 0 15px var(--primary-color);
+  box-shadow: 0 0 40px var(--primary-color);
 }
 
 .hotspot:hover .hotspot-button {
   background: var(--error-color);
   color: #000;
   border-color: var(--error-color) !important;
-  transform: translate(-50%, -50%) scale(1.15);
 }
 
 .hotspot.visited:hover .hotspot-button {
@@ -574,7 +577,7 @@ body.quiz-active #mission-tracker {
 }
 
 #quiz-question {
-  font-size: 1.1rem;
+  font-size: 1rem;
   margin-bottom: 16px;
   word-break: break-word;
 }
@@ -608,6 +611,45 @@ body.quiz-active #mission-tracker {
 .quiz-opt.wrong {
   background: var(--error-color);
   border-color: var(--error-color);
+}
+
+/* ===== RESPONSIVIDADE PARA ESTATÍSTICAS DO QUIZ ===== */
+#quiz-options [style*="font-size: 1.8rem"] {
+  font-size: clamp(1.2rem, 5vw, 1.8rem) !important;
+}
+
+#quiz-options [style*="font-size: 1.5rem"] {
+  font-size: clamp(1.1rem, 4vw, 1.5rem) !important;
+}
+
+#quiz-options [style*="font-size: 1.3rem"] {
+  font-size: clamp(1rem, 3.5vw, 1.3rem) !important;
+}
+
+#quiz-options [style*="font-size: 0.8rem"] {
+  font-size: clamp(0.7rem, 2.5vw, 0.8rem) !important;
+}
+
+#quiz-options [style*="font-size: 0.7rem"] {
+  font-size: clamp(0.6rem, 2vw, 0.7rem) !important;
+}
+
+/* ===== MISSION REPORT ===== */
+.mission-report-container {
+  max-height: 70vh;
+  overflow-y: auto;
+  margin: 10px 0;
+}
+
+.quiz-panel:has(.mission-report-container) {
+  max-height: 85vh;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.quiz-panel .mission-report-container {
+  max-height: 65vh;
 }
 
 /* ===== VILLAIN ===== */
@@ -769,7 +811,7 @@ body.at-start #btn-home {
 
 .matrix-column {
   position: absolute;
-  top: -100%;
+  top: 0;
   width: 20px;
   text-align: center;
   font-size: 14px;
@@ -779,11 +821,12 @@ body.at-start #btn-home {
   white-space: nowrap;
   animation: matrixFall linear infinite;
   opacity: 0;
+  will-change: transform, opacity;
 }
 
 @keyframes matrixFall {
   0% {
-    top: -100%;
+    transform: translateY(-100%);
     opacity: 0;
   }
 
@@ -796,7 +839,7 @@ body.at-start #btn-home {
   }
 
   100% {
-    top: 100%;
+    transform: translateY(100vh);
     opacity: 0;
   }
 }
@@ -1228,7 +1271,7 @@ body.at-start #btn-home {
   }
 
   50% {
-    transform: translate(-50%, -50%) scale(1.15);
+    transform: translate(-50%, -50%) scale(1.05);
   }
 
   100% {
@@ -1384,6 +1427,8 @@ body.at-start #btn-home {
   box-shadow: 0 0 10px var(--glass-border);
 }
 
+
+
 /* ===== MEDIA QUERIES - MOBILE FIRST ===== */
 
 /* Tablets (768px e acima) */
@@ -1470,6 +1515,10 @@ body.at-start #btn-home {
 
   .confirm-panel h2 {
     font-size: 1.5rem;
+  }
+
+  .quiz-panel:has(.mission-report-container) {
+    margin-top: 60px;
   }
 }
 
@@ -1599,7 +1648,7 @@ body.at-start #btn-home {
   }
 
   #cards-container {
-    max-height: 45vh;
+    max-height: 30vh;
     min-height: auto;
     height: auto;
     overflow-y: auto;
@@ -1657,6 +1706,21 @@ body.at-start #btn-home {
   #villain-sprite {
     width: 250px;
     height: 250px;
+  }
+
+  .quiz-panel {
+    max-width: 95%;
+    padding: 12px
+  }
+
+  .mission-report-container {
+    padding: 15px !important;
+    gap: 15px !important;
+  }
+
+  .quiz-panel:has(.mission-report-container) {
+    margin-top: 40px;
+    max-height: 90vh;
   }
 }
 
@@ -1734,8 +1798,12 @@ body.at-start #btn-home {
 }
 
 /* ===== QUIZ ACTIVE ===== */
-body.quiz-active #game-ui {
+/* body.quiz-active #game-ui {
   z-index: calc(var(--z-modal) + 1);
+} */
+
+body.quiz-active #narrator-area {
+  z-index: calc(var(--z-modal) + 1) !important;
 }
 
 body.quiz-active .narrator-overlay {
@@ -1789,4 +1857,29 @@ body.quiz-active .dialog-box {
   #cards-container::-webkit-scrollbar {
     width: 8px;
   }
+}
+
+/* Otimização de GPU para Mobile: Reduz peso do efeito de vidro */
+@media screen and (max-width: 768px) {
+  .glass-panel, 
+  #mission-tracker, 
+  .icon-btn, 
+  #btn-home,
+  .dialog-box,
+  .level-card {
+    backdrop-filter: blur(4px); /* Reduzido de 10px para aliviar o processador */
+    -webkit-backdrop-filter: blur(4px);
+  }
+}
+
+/* Força a renderização na Placa de Vídeo (GPU Acceleration) */
+.narrator-sprite, 
+#villain-sprite, 
+.boot-byte-sprite, 
+.cta-button.pulsing,
+.hotspot-button {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  will-change: transform, filter, box-shadow;
 }
